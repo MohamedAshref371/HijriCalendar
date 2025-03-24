@@ -12,11 +12,14 @@ namespace HijriCalendar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            toolStripMenuItem3.Click += (s, ea) => CreateStartupShortcut();
+            toolStripMenuItem4.Click += (s, ea) => DeleteStartupShortcut();
+            toolStripMenuItem2.Click += (s, ea) => Close();
+
             Focus();
             BringToFront();
 
             DateLabel_Click(null, null);
-            CreateStartupShortcut();
         }
 
         private void DateLabel_Click(object sender, EventArgs e)
@@ -67,13 +70,7 @@ namespace HijriCalendar
             this.Top = screenHeight - this.Height;
             #endregion
         }
-
-        private void Hijri_Click(object sender, EventArgs e)
-        {
-            DeleteStartupShortcut();
-            Close();
-        }
-
+        
         private void CreateStartupShortcut()
         {
             string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
