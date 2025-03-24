@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace HijriCalendar
@@ -13,7 +14,10 @@ namespace HijriCalendar
         private void Form1_Load(object sender, EventArgs e)
         {
             AddEventHandler();
-            
+
+            ChangeDateLabelSize(Properties.Settings.Default.TextSize);
+            ChangeDateLabelColor(Properties.Settings.Default.TextColor);
+
             Focus();
             BringToFront();
 
@@ -73,12 +77,16 @@ namespace HijriCalendar
         private void ChangeDateLabelSize(float size)
         {
             dateLabel.Font = new Font(dateLabel.Font.FontFamily, size);
+            Properties.Settings.Default.TextSize = size;
+            Properties.Settings.Default.Save();
             SetDate();
         }
 
         private void ChangeDateLabelColor(Color color)
         {
             dateLabel.ForeColor = color;
+            Properties.Settings.Default.TextColor = color;
+            Properties.Settings.Default.Save();
         }
         #endregion
 
