@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HijriCalendar
@@ -15,6 +16,7 @@ namespace HijriCalendar
             BringToFront();
 
             DateLabel_Click(null, null);
+            CreateStartupShortcut();
         }
 
         private void DateLabel_Click(object sender, EventArgs e)
@@ -66,7 +68,38 @@ namespace HijriCalendar
             #endregion
         }
 
-        private void Hijri_Click(object sender, EventArgs e) => Close();
-        
+        private void Hijri_Click(object sender, EventArgs e)
+        {
+            DeleteStartupShortcut();
+            Close();
+        }
+
+        private void CreateStartupShortcut()
+        {
+            string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string shortcutPath = Path.Combine(startupPath, $"{Application.ProductName} - Shortcut.lnk");
+
+            if (File.Exists(shortcutPath)) return;
+
+            IWshRuntimeLibrary.WshShell shell = new IWshRuntimeLibrary.WshShell();
+            IWshRuntimeLibrary.IWshShortcut shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(shortcutPath);
+
+            shortcut.TargetPath = Application.ExecutablePath;
+            shortcut.WorkingDirectory = Application.StartupPath;
+            shortcut.WindowStyle = 1;
+            shortcut.Description = $"Shortcut to {Application.ProductName} Application";
+            shortcut.IconLocation = Application.ExecutablePath;
+
+            shortcut.Save();
+        }
+
+        public void DeleteStartupShortcut()
+        {
+            string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string shortcutPath = Path.Combine(startupPath, $"{Application.ProductName} - Shortcut.lnk");
+
+            if (File.Exists(shortcutPath))
+                File.Delete(shortcutPath);
+        }
     }
 }
