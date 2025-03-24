@@ -93,7 +93,9 @@ namespace HijriCalendar
             textSize8px.Click += (s, ea) => ChangeDateLabelSize(8);
             textSize10px.Click += (s, ea) => ChangeDateLabelSize(10);
             textSize12px.Click += (s, ea) => ChangeDateLabelSize(12);
+            textSize14px.Click += (s, ea) => ChangeDateLabelSize(14);
             textSize16px.Click += (s, ea) => ChangeDateLabelSize(16);
+            textSize18px.Click += (s, ea) => ChangeDateLabelSize(18);
             textSize20px.Click += (s, ea) => ChangeDateLabelSize(20);
 
             textColorBlack.Click += (s, ea) => ChangeDateLabelColor(Color.Black);

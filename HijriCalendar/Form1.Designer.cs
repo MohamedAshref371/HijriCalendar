@@ -36,25 +36,27 @@
             this.shortcutStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.enableStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.disableStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.textSizeList = new System.Windows.Forms.ToolStripMenuItem();
-            this.textColorList = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize8px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize10px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize12px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize16px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize20px = new System.Windows.Forms.ToolStripMenuItem();
-            this.textSize8px = new System.Windows.Forms.ToolStripMenuItem();
-            this.textSize10px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorList = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorBlack = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorWhite = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorRed = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorGreen = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorLime = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorBlue = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorLightBlue = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorYellow = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorCyan = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorMagenta = new System.Windows.Forms.ToolStripMenuItem();
-            this.textColorWhite = new System.Windows.Forms.ToolStripMenuItem();
-            this.textColorLightBlue = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize14px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize18px = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +86,7 @@
             this.updateStrip,
             this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 136);
             this.contextMenuStrip1.Text = "التشغيل عند بدء الويندوز";
             // 
             // shortcutStrip
@@ -99,26 +101,14 @@
             // enableStrip
             // 
             this.enableStrip.Name = "enableStrip";
-            this.enableStrip.Size = new System.Drawing.Size(180, 22);
+            this.enableStrip.Size = new System.Drawing.Size(107, 22);
             this.enableStrip.Text = "تفعيل";
             // 
             // disableStrip
             // 
             this.disableStrip.Name = "disableStrip";
-            this.disableStrip.Size = new System.Drawing.Size(180, 22);
+            this.disableStrip.Size = new System.Drawing.Size(107, 22);
             this.disableStrip.Text = "تعطيل";
-            // 
-            // updateStrip
-            // 
-            this.updateStrip.Name = "updateStrip";
-            this.updateStrip.Size = new System.Drawing.Size(194, 22);
-            this.updateStrip.Text = "تحديث التاريخ";
-            // 
-            // closeStrip
-            // 
-            this.closeStrip.Name = "closeStrip";
-            this.closeStrip.Size = new System.Drawing.Size(194, 22);
-            this.closeStrip.Text = "خروج";
             // 
             // textSizeList
             // 
@@ -126,11 +116,43 @@
             this.textSize8px,
             this.textSize10px,
             this.textSize12px,
+            this.textSize14px,
             this.textSize16px,
+            this.textSize18px,
             this.textSize20px});
             this.textSizeList.Name = "textSizeList";
             this.textSizeList.Size = new System.Drawing.Size(194, 22);
             this.textSizeList.Text = "حجم الخط";
+            // 
+            // textSize8px
+            // 
+            this.textSize8px.Name = "textSize8px";
+            this.textSize8px.Size = new System.Drawing.Size(180, 22);
+            this.textSize8px.Text = "8 px";
+            // 
+            // textSize10px
+            // 
+            this.textSize10px.Name = "textSize10px";
+            this.textSize10px.Size = new System.Drawing.Size(180, 22);
+            this.textSize10px.Text = "10 px";
+            // 
+            // textSize12px
+            // 
+            this.textSize12px.Name = "textSize12px";
+            this.textSize12px.Size = new System.Drawing.Size(180, 22);
+            this.textSize12px.Text = "12 px";
+            // 
+            // textSize16px
+            // 
+            this.textSize16px.Name = "textSize16px";
+            this.textSize16px.Size = new System.Drawing.Size(180, 22);
+            this.textSize16px.Text = "16 px";
+            // 
+            // textSize20px
+            // 
+            this.textSize20px.Name = "textSize20px";
+            this.textSize20px.Size = new System.Drawing.Size(180, 22);
+            this.textSize20px.Text = "20 px";
             // 
             // textColorList
             // 
@@ -149,41 +171,17 @@
             this.textColorList.Size = new System.Drawing.Size(194, 22);
             this.textColorList.Text = "لون الخط";
             // 
-            // textSize12px
-            // 
-            this.textSize12px.Name = "textSize12px";
-            this.textSize12px.Size = new System.Drawing.Size(102, 22);
-            this.textSize12px.Text = "12 px";
-            // 
-            // textSize16px
-            // 
-            this.textSize16px.Name = "textSize16px";
-            this.textSize16px.Size = new System.Drawing.Size(102, 22);
-            this.textSize16px.Text = "16 px";
-            // 
-            // textSize20px
-            // 
-            this.textSize20px.Name = "textSize20px";
-            this.textSize20px.Size = new System.Drawing.Size(102, 22);
-            this.textSize20px.Text = "20 px";
-            // 
-            // textSize8px
-            // 
-            this.textSize8px.Name = "textSize8px";
-            this.textSize8px.Size = new System.Drawing.Size(102, 22);
-            this.textSize8px.Text = "8 px";
-            // 
-            // textSize10px
-            // 
-            this.textSize10px.Name = "textSize10px";
-            this.textSize10px.Size = new System.Drawing.Size(102, 22);
-            this.textSize10px.Text = "10 px";
-            // 
             // textColorBlack
             // 
             this.textColorBlack.Name = "textColorBlack";
             this.textColorBlack.Size = new System.Drawing.Size(118, 22);
             this.textColorBlack.Text = "أسود";
+            // 
+            // textColorWhite
+            // 
+            this.textColorWhite.Name = "textColorWhite";
+            this.textColorWhite.Size = new System.Drawing.Size(118, 22);
+            this.textColorWhite.Text = "أبيض";
             // 
             // textColorRed
             // 
@@ -209,6 +207,12 @@
             this.textColorBlue.Size = new System.Drawing.Size(118, 22);
             this.textColorBlue.Text = "أزرق";
             // 
+            // textColorLightBlue
+            // 
+            this.textColorLightBlue.Name = "textColorLightBlue";
+            this.textColorLightBlue.Size = new System.Drawing.Size(118, 22);
+            this.textColorLightBlue.Text = "أزرق فاتح";
+            // 
             // textColorYellow
             // 
             this.textColorYellow.Name = "textColorYellow";
@@ -227,17 +231,29 @@
             this.textColorMagenta.Size = new System.Drawing.Size(118, 22);
             this.textColorMagenta.Text = "قرمزي";
             // 
-            // textColorWhite
+            // updateStrip
             // 
-            this.textColorWhite.Name = "textColorWhite";
-            this.textColorWhite.Size = new System.Drawing.Size(118, 22);
-            this.textColorWhite.Text = "أبيض";
+            this.updateStrip.Name = "updateStrip";
+            this.updateStrip.Size = new System.Drawing.Size(194, 22);
+            this.updateStrip.Text = "تحديث التاريخ";
             // 
-            // textColorLightBlue
+            // closeStrip
             // 
-            this.textColorLightBlue.Name = "textColorLightBlue";
-            this.textColorLightBlue.Size = new System.Drawing.Size(118, 22);
-            this.textColorLightBlue.Text = "أزرق فاتح";
+            this.closeStrip.Name = "closeStrip";
+            this.closeStrip.Size = new System.Drawing.Size(194, 22);
+            this.closeStrip.Text = "خروج";
+            // 
+            // textSize14px
+            // 
+            this.textSize14px.Name = "textSize14px";
+            this.textSize14px.Size = new System.Drawing.Size(180, 22);
+            this.textSize14px.Text = "14 px";
+            // 
+            // textSize18px
+            // 
+            this.textSize18px.Name = "textSize18px";
+            this.textSize18px.Size = new System.Drawing.Size(180, 22);
+            this.textSize18px.Text = "18 px";
             // 
             // Form1
             // 
@@ -290,6 +306,8 @@
         private System.Windows.Forms.ToolStripMenuItem textColorYellow;
         private System.Windows.Forms.ToolStripMenuItem textColorCyan;
         private System.Windows.Forms.ToolStripMenuItem textColorMagenta;
+        private System.Windows.Forms.ToolStripMenuItem textSize14px;
+        private System.Windows.Forms.ToolStripMenuItem textSize18px;
     }
 }
 
