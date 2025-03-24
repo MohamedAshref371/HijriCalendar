@@ -33,10 +33,28 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.Hijri = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.shortcutStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.enableStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.disableStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSizeList = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorList = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize12px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize16px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize20px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize8px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize10px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorBlack = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorRed = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorGreen = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorLime = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorBlue = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorYellow = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorCyan = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorMagenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorWhite = new System.Windows.Forms.ToolStripMenuItem();
+            this.textColorLightBlue = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +67,6 @@
             this.dateLabel.Size = new System.Drawing.Size(0, 27);
             this.dateLabel.TabIndex = 0;
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.dateLabel.Click += new System.EventHandler(this.DateLabel_Click);
             // 
             // Hijri
             // 
@@ -61,44 +78,172 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
+            this.shortcutStrip,
+            this.textSizeList,
+            this.textColorList,
+            this.updateStrip,
+            this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 114);
             this.contextMenuStrip1.Text = "التشغيل عند بدء الويندوز";
             // 
-            // toolStripMenuItem1
+            // shortcutStrip
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
-            this.toolStripMenuItem1.Text = "التشغيل عند بدء الويندوز";
+            this.shortcutStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enableStrip,
+            this.disableStrip});
+            this.shortcutStrip.Name = "shortcutStrip";
+            this.shortcutStrip.Size = new System.Drawing.Size(194, 22);
+            this.shortcutStrip.Text = "التشغيل عند بدء الويندوز";
             // 
-            // toolStripMenuItem2
+            // enableStrip
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(194, 22);
-            this.toolStripMenuItem2.Text = "خروج";
+            this.enableStrip.Name = "enableStrip";
+            this.enableStrip.Size = new System.Drawing.Size(180, 22);
+            this.enableStrip.Text = "تفعيل";
             // 
-            // toolStripMenuItem3
+            // disableStrip
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "تفعيل";
+            this.disableStrip.Name = "disableStrip";
+            this.disableStrip.Size = new System.Drawing.Size(180, 22);
+            this.disableStrip.Text = "تعطيل";
             // 
-            // toolStripMenuItem4
+            // updateStrip
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem4.Text = "تعطيل";
+            this.updateStrip.Name = "updateStrip";
+            this.updateStrip.Size = new System.Drawing.Size(194, 22);
+            this.updateStrip.Text = "تحديث التاريخ";
+            // 
+            // closeStrip
+            // 
+            this.closeStrip.Name = "closeStrip";
+            this.closeStrip.Size = new System.Drawing.Size(194, 22);
+            this.closeStrip.Text = "خروج";
+            // 
+            // textSizeList
+            // 
+            this.textSizeList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textSize8px,
+            this.textSize10px,
+            this.textSize12px,
+            this.textSize16px,
+            this.textSize20px});
+            this.textSizeList.Name = "textSizeList";
+            this.textSizeList.Size = new System.Drawing.Size(194, 22);
+            this.textSizeList.Text = "حجم الخط";
+            // 
+            // textColorList
+            // 
+            this.textColorList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textColorBlack,
+            this.textColorWhite,
+            this.textColorRed,
+            this.textColorGreen,
+            this.textColorLime,
+            this.textColorBlue,
+            this.textColorLightBlue,
+            this.textColorYellow,
+            this.textColorCyan,
+            this.textColorMagenta});
+            this.textColorList.Name = "textColorList";
+            this.textColorList.Size = new System.Drawing.Size(194, 22);
+            this.textColorList.Text = "لون الخط";
+            // 
+            // textSize12px
+            // 
+            this.textSize12px.Name = "textSize12px";
+            this.textSize12px.Size = new System.Drawing.Size(102, 22);
+            this.textSize12px.Text = "12 px";
+            // 
+            // textSize16px
+            // 
+            this.textSize16px.Name = "textSize16px";
+            this.textSize16px.Size = new System.Drawing.Size(102, 22);
+            this.textSize16px.Text = "16 px";
+            // 
+            // textSize20px
+            // 
+            this.textSize20px.Name = "textSize20px";
+            this.textSize20px.Size = new System.Drawing.Size(102, 22);
+            this.textSize20px.Text = "20 px";
+            // 
+            // textSize8px
+            // 
+            this.textSize8px.Name = "textSize8px";
+            this.textSize8px.Size = new System.Drawing.Size(102, 22);
+            this.textSize8px.Text = "8 px";
+            // 
+            // textSize10px
+            // 
+            this.textSize10px.Name = "textSize10px";
+            this.textSize10px.Size = new System.Drawing.Size(102, 22);
+            this.textSize10px.Text = "10 px";
+            // 
+            // textColorBlack
+            // 
+            this.textColorBlack.Name = "textColorBlack";
+            this.textColorBlack.Size = new System.Drawing.Size(118, 22);
+            this.textColorBlack.Text = "أسود";
+            // 
+            // textColorRed
+            // 
+            this.textColorRed.Name = "textColorRed";
+            this.textColorRed.Size = new System.Drawing.Size(118, 22);
+            this.textColorRed.Text = "أحمر";
+            // 
+            // textColorGreen
+            // 
+            this.textColorGreen.Name = "textColorGreen";
+            this.textColorGreen.Size = new System.Drawing.Size(118, 22);
+            this.textColorGreen.Text = "أخضر";
+            // 
+            // textColorLime
+            // 
+            this.textColorLime.Name = "textColorLime";
+            this.textColorLime.Size = new System.Drawing.Size(118, 22);
+            this.textColorLime.Text = "ليموني";
+            // 
+            // textColorBlue
+            // 
+            this.textColorBlue.Name = "textColorBlue";
+            this.textColorBlue.Size = new System.Drawing.Size(118, 22);
+            this.textColorBlue.Text = "أزرق";
+            // 
+            // textColorYellow
+            // 
+            this.textColorYellow.Name = "textColorYellow";
+            this.textColorYellow.Size = new System.Drawing.Size(118, 22);
+            this.textColorYellow.Text = "أصفر";
+            // 
+            // textColorCyan
+            // 
+            this.textColorCyan.Name = "textColorCyan";
+            this.textColorCyan.Size = new System.Drawing.Size(118, 22);
+            this.textColorCyan.Text = "سماوي";
+            // 
+            // textColorMagenta
+            // 
+            this.textColorMagenta.Name = "textColorMagenta";
+            this.textColorMagenta.Size = new System.Drawing.Size(118, 22);
+            this.textColorMagenta.Text = "قرمزي";
+            // 
+            // textColorWhite
+            // 
+            this.textColorWhite.Name = "textColorWhite";
+            this.textColorWhite.Size = new System.Drawing.Size(118, 22);
+            this.textColorWhite.Text = "أبيض";
+            // 
+            // textColorLightBlue
+            // 
+            this.textColorLightBlue.Name = "textColorLightBlue";
+            this.textColorLightBlue.Size = new System.Drawing.Size(118, 22);
+            this.textColorLightBlue.Text = "أزرق فاتح";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(147, 56);
             this.Controls.Add(this.dateLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -110,7 +255,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Hijri Calendar";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.Color.White;
+            this.TransparencyKey = System.Drawing.SystemColors.Control;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -123,10 +268,28 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.NotifyIcon Hijri;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem shortcutStrip;
+        private System.Windows.Forms.ToolStripMenuItem closeStrip;
+        private System.Windows.Forms.ToolStripMenuItem enableStrip;
+        private System.Windows.Forms.ToolStripMenuItem disableStrip;
+        private System.Windows.Forms.ToolStripMenuItem updateStrip;
+        private System.Windows.Forms.ToolStripMenuItem textSizeList;
+        private System.Windows.Forms.ToolStripMenuItem textColorList;
+        private System.Windows.Forms.ToolStripMenuItem textSize8px;
+        private System.Windows.Forms.ToolStripMenuItem textSize10px;
+        private System.Windows.Forms.ToolStripMenuItem textSize12px;
+        private System.Windows.Forms.ToolStripMenuItem textSize16px;
+        private System.Windows.Forms.ToolStripMenuItem textSize20px;
+        private System.Windows.Forms.ToolStripMenuItem textColorBlack;
+        private System.Windows.Forms.ToolStripMenuItem textColorWhite;
+        private System.Windows.Forms.ToolStripMenuItem textColorRed;
+        private System.Windows.Forms.ToolStripMenuItem textColorGreen;
+        private System.Windows.Forms.ToolStripMenuItem textColorLime;
+        private System.Windows.Forms.ToolStripMenuItem textColorBlue;
+        private System.Windows.Forms.ToolStripMenuItem textColorLightBlue;
+        private System.Windows.Forms.ToolStripMenuItem textColorYellow;
+        private System.Windows.Forms.ToolStripMenuItem textColorCyan;
+        private System.Windows.Forms.ToolStripMenuItem textColorMagenta;
     }
 }
 
