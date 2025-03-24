@@ -1,4 +1,4 @@
-﻿namespace HijriCalendar
+﻿namespace hijri_calendar
 {
     partial class Form1
     {
@@ -40,7 +40,9 @@
             this.textSize8px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize10px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize12px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize14px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize16px = new System.Windows.Forms.ToolStripMenuItem();
+            this.textSize18px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize20px = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorList = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorBlack = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,10 +55,12 @@
             this.textColorYellow = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorCyan = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorMagenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.showMonthNameStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.textSize14px = new System.Windows.Forms.ToolStripMenuItem();
-            this.textSize18px = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageList = new System.Windows.Forms.ToolStripMenuItem();
+            this.arabicStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,11 +87,13 @@
             this.shortcutStrip,
             this.textSizeList,
             this.textColorList,
+            this.languageList,
+            this.showMonthNameStrip,
             this.updateStrip,
             this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 136);
-            this.contextMenuStrip1.Text = "التشغيل عند بدء الويندوز";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 180);
+            this.contextMenuStrip1.Text = "القائمة";
             // 
             // shortcutStrip
             // 
@@ -127,31 +133,43 @@
             // textSize8px
             // 
             this.textSize8px.Name = "textSize8px";
-            this.textSize8px.Size = new System.Drawing.Size(180, 22);
+            this.textSize8px.Size = new System.Drawing.Size(102, 22);
             this.textSize8px.Text = "8 px";
             // 
             // textSize10px
             // 
             this.textSize10px.Name = "textSize10px";
-            this.textSize10px.Size = new System.Drawing.Size(180, 22);
+            this.textSize10px.Size = new System.Drawing.Size(102, 22);
             this.textSize10px.Text = "10 px";
             // 
             // textSize12px
             // 
             this.textSize12px.Name = "textSize12px";
-            this.textSize12px.Size = new System.Drawing.Size(180, 22);
+            this.textSize12px.Size = new System.Drawing.Size(102, 22);
             this.textSize12px.Text = "12 px";
+            // 
+            // textSize14px
+            // 
+            this.textSize14px.Name = "textSize14px";
+            this.textSize14px.Size = new System.Drawing.Size(102, 22);
+            this.textSize14px.Text = "14 px";
             // 
             // textSize16px
             // 
             this.textSize16px.Name = "textSize16px";
-            this.textSize16px.Size = new System.Drawing.Size(180, 22);
+            this.textSize16px.Size = new System.Drawing.Size(102, 22);
             this.textSize16px.Text = "16 px";
+            // 
+            // textSize18px
+            // 
+            this.textSize18px.Name = "textSize18px";
+            this.textSize18px.Size = new System.Drawing.Size(102, 22);
+            this.textSize18px.Text = "18 px";
             // 
             // textSize20px
             // 
             this.textSize20px.Name = "textSize20px";
-            this.textSize20px.Size = new System.Drawing.Size(180, 22);
+            this.textSize20px.Size = new System.Drawing.Size(102, 22);
             this.textSize20px.Text = "20 px";
             // 
             // textColorList
@@ -231,6 +249,12 @@
             this.textColorMagenta.Size = new System.Drawing.Size(118, 22);
             this.textColorMagenta.Text = "قرمزي";
             // 
+            // showMonthNameStrip
+            // 
+            this.showMonthNameStrip.Name = "showMonthNameStrip";
+            this.showMonthNameStrip.Size = new System.Drawing.Size(194, 22);
+            this.showMonthNameStrip.Text = "إخفاء إسم الشهر";
+            // 
             // updateStrip
             // 
             this.updateStrip.Name = "updateStrip";
@@ -243,17 +267,26 @@
             this.closeStrip.Size = new System.Drawing.Size(194, 22);
             this.closeStrip.Text = "خروج";
             // 
-            // textSize14px
+            // languageList
             // 
-            this.textSize14px.Name = "textSize14px";
-            this.textSize14px.Size = new System.Drawing.Size(180, 22);
-            this.textSize14px.Text = "14 px";
+            this.languageList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arabicStrip,
+            this.englishStrip});
+            this.languageList.Name = "languageList";
+            this.languageList.Size = new System.Drawing.Size(194, 22);
+            this.languageList.Text = "اللغة";
             // 
-            // textSize18px
+            // arabicStrip
             // 
-            this.textSize18px.Name = "textSize18px";
-            this.textSize18px.Size = new System.Drawing.Size(180, 22);
-            this.textSize18px.Text = "18 px";
+            this.arabicStrip.Name = "arabicStrip";
+            this.arabicStrip.Size = new System.Drawing.Size(112, 22);
+            this.arabicStrip.Text = "العربية";
+            // 
+            // englishStrip
+            // 
+            this.englishStrip.Name = "englishStrip";
+            this.englishStrip.Size = new System.Drawing.Size(112, 22);
+            this.englishStrip.Text = "English";
             // 
             // Form1
             // 
@@ -308,6 +341,10 @@
         private System.Windows.Forms.ToolStripMenuItem textColorMagenta;
         private System.Windows.Forms.ToolStripMenuItem textSize14px;
         private System.Windows.Forms.ToolStripMenuItem textSize18px;
+        private System.Windows.Forms.ToolStripMenuItem showMonthNameStrip;
+        private System.Windows.Forms.ToolStripMenuItem languageList;
+        private System.Windows.Forms.ToolStripMenuItem arabicStrip;
+        private System.Windows.Forms.ToolStripMenuItem englishStrip;
     }
 }
 

@@ -2,62 +2,62 @@
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Security.Policy;
 using System.Windows.Forms;
 
-namespace HijriCalendar
+namespace hijri_calendar
 {
     public partial class Form1 : Form
     {
+        bool showMonthName;
         public Form1() => InitializeComponent();
 
         private void Form1_Load(object sender, EventArgs e)
         {
             AddEventHandler();
 
-            ChangeDateLabelSize(Properties.Settings.Default.TextSize);
-            ChangeDateLabelColor(Properties.Settings.Default.TextColor);
+            SetDateLabelSize(Properties.Settings.Default.TextSize);
+            SetDateLabelColor(Properties.Settings.Default.TextColor);
+            showMonthName = Properties.Settings.Default.ShowMonthName;
+
+            int lang = Properties.Settings.Default.Language;
+            if (lang != 0) SetLangauge(lang);
 
             Focus();
             BringToFront();
 
             SetDate();
         }
-        
+
         private void SetDate()
         {
             #region Configuration
             object calendarType = Microsoft.Win32.Registry.GetValue(@"HKEY_CURRENT_USER\Control Panel\International", "iCalendarType", null);
             bool isHijri = calendarType != null && calendarType.ToString() == "6";
-            System.Globalization.HijriCalendar hijriCalendar = new System.Globalization.HijriCalendar();
-            hijriCalendar.HijriAdjustment = 0;
 
-            CultureInfo hijriCulture = new CultureInfo("ar-SA");
-            hijriCulture.DateTimeFormat.Calendar = hijriCalendar;
+            Calendar calendar;
+            if (isHijri)
+                calendar = new GregorianCalendar();
+            else
+                calendar = new HijriCalendar();
+
+            CultureInfo cultureInfo = new CultureInfo(isHijri ? "en-US" : "ar-SA");
+            cultureInfo.DateTimeFormat.Calendar = calendar;
             #endregion
 
             #region Show Date
             DateTime today = DateTime.Now;
 
-            int year, month, day;
+            int year = calendar.GetYear(today);
+            int month = calendar.GetMonth(today);
+            int day = calendar.GetDayOfMonth(today);
+
             string monthName;
-
-            if (!isHijri)
-            {
-                year = hijriCalendar.GetYear(today);
-                month = hijriCalendar.GetMonth(today);
-                day = hijriCalendar.GetDayOfMonth(today);
-                monthName = hijriCulture.DateTimeFormat.GetMonthName(month);
-            }
+            if (showMonthName)
+                monthName = " " + cultureInfo.DateTimeFormat.GetMonthName(month);
             else
-            {
-                year = today.Year;
-                month = today.Month;
-                day = today.Day;
-                monthName = today.ToString("MMM");
-            }
+                monthName = "";
 
-            dateLabel.Text = $"{year}/{month:D2}/{day:D2} {monthName}";
+            dateLabel.Text = $"{year}/{month:D2}/{day:D2}{monthName}";
             #endregion
 
             #region Form Position
@@ -73,8 +73,8 @@ namespace HijriCalendar
             #endregion
         }
 
-        #region Date Label
-        private void ChangeDateLabelSize(float size)
+        #region Properties Settings Default
+        private void SetDateLabelSize(float size)
         {
             dateLabel.Font = new Font(dateLabel.Font.FontFamily, size);
             Properties.Settings.Default.TextSize = size;
@@ -82,11 +82,89 @@ namespace HijriCalendar
             SetDate();
         }
 
-        private void ChangeDateLabelColor(Color color)
+        private void SetDateLabelColor(Color color)
         {
             dateLabel.ForeColor = color;
             Properties.Settings.Default.TextColor = color;
             Properties.Settings.Default.Save();
+        }
+
+        private void SetShowMonthNameBoolean()
+        {
+            showMonthName = !showMonthName;
+
+            showMonthNameStrip.Text = ShowMonthNameStripText();
+            Properties.Settings.Default.ShowMonthName = showMonthName;
+            Properties.Settings.Default.Save();
+            SetDate();
+        }
+
+        int lang = 0;
+        private void SetLangauge(int lang)
+        {
+            this.lang = lang;
+            if (lang == 0)
+            {
+
+                shortcutStrip.Text = "التشغيل عند بدء الويندوز";
+                enableStrip.Text = "تفعيل";
+                disableStrip.Text = "تعطيل";
+                textSizeList.Text = "حجم الخط";
+                textColorList.Text = "لون الخط";
+                textColorBlack.Text = "أسود";
+                textColorWhite.Text = "أبيض";
+                textColorRed.Text = "أحمر";
+                textColorGreen.Text = "أخضر";
+                textColorLime.Text = "ليموني";
+                textColorBlue.Text = "أزرق";
+                textColorLightBlue.Text = "أزرق فاتح";
+                textColorYellow.Text = "أصفر";
+                textColorCyan.Text = "سماوي";
+                textColorMagenta.Text = "قرمزي";
+                showMonthNameStrip.Text = "إخفاء إسم الشهر";
+                updateStrip.Text = "تحديث التاريخ";
+                closeStrip.Text = "خروج";
+                languageList.Text = "اللغة";
+            }
+            else if (lang == 1)
+            {
+                shortcutStrip.Text = "Run at Windows startup";
+                enableStrip.Text = "Enable";
+                disableStrip.Text = "Disable";
+                textSizeList.Text = "Text size";
+                textColorList.Text = "Text color";
+                textColorBlack.Text = "Black";
+                textColorWhite.Text = "White";
+                textColorRed.Text = "Red";
+                textColorGreen.Text = "Green";
+                textColorLime.Text = "Lime";
+                textColorBlue.Text = "Blue";
+                textColorLightBlue.Text = "Light blue";
+                textColorYellow.Text = "Yellow";
+                textColorCyan.Text = "Cyan";
+                textColorMagenta.Text = "Magenta";
+                showMonthNameStrip.Text = "Hide month name";
+                updateStrip.Text = "Update date";
+                closeStrip.Text = "Exit";
+                languageList.Text = "Language";
+            }
+            ShowMonthNameStripText();
+            Properties.Settings.Default.Language = lang;
+            Properties.Settings.Default.Save();
+        }
+
+        private string ShowMonthNameStripText()
+        {
+            if (lang == 1)
+            {
+                if (showMonthName) return "Hide month name";
+                else return "Show month name";
+            }
+            else
+            {
+                if (showMonthName) return "إخفاء إسم الشهر";
+                else return "إظهار إسم الشهر";
+            }
         }
         #endregion
 
@@ -94,28 +172,33 @@ namespace HijriCalendar
         {
             enableStrip.Click += (s, ea) => CreateStartupShortcut();
             disableStrip.Click += (s, ea) => DeleteStartupShortcut();
+
+            showMonthNameStrip.Click += (s, ea) => SetShowMonthNameBoolean();
             updateStrip.Click += (s, ea) => SetDate();
             closeStrip.Click += (s, ea) => Close();
             dateLabel.MouseHover += (s, ea) => SetDate();
 
-            textSize8px.Click += (s, ea) => ChangeDateLabelSize(8);
-            textSize10px.Click += (s, ea) => ChangeDateLabelSize(10);
-            textSize12px.Click += (s, ea) => ChangeDateLabelSize(12);
-            textSize14px.Click += (s, ea) => ChangeDateLabelSize(14);
-            textSize16px.Click += (s, ea) => ChangeDateLabelSize(16);
-            textSize18px.Click += (s, ea) => ChangeDateLabelSize(18);
-            textSize20px.Click += (s, ea) => ChangeDateLabelSize(20);
+            arabicStrip.Click += (s, ea) => SetLangauge(0);
+            englishStrip.Click += (s, ea) => SetLangauge(1);
 
-            textColorBlack.Click += (s, ea) => ChangeDateLabelColor(Color.Black);
-            textColorWhite.Click += (s, ea) => ChangeDateLabelColor(Color.White);
-            textColorRed.Click += (s, ea) => ChangeDateLabelColor(Color.Red);
-            textColorGreen.Click += (s, ea) => ChangeDateLabelColor(Color.Green);
-            textColorLime.Click += (s, ea) => ChangeDateLabelColor(Color.Lime);
-            textColorBlue.Click += (s, ea) => ChangeDateLabelColor(Color.Blue);
-            textColorLightBlue.Click += (s, ea) => ChangeDateLabelColor(Color.LightBlue);
-            textColorYellow.Click += (s, ea) => ChangeDateLabelColor(Color.Yellow);
-            textColorCyan.Click += (s, ea) => ChangeDateLabelColor(Color.Cyan);
-            textColorMagenta.Click += (s, ea) => ChangeDateLabelColor(Color.Magenta);
+            textSize8px.Click += (s, ea) => SetDateLabelSize(8);
+            textSize10px.Click += (s, ea) => SetDateLabelSize(10);
+            textSize12px.Click += (s, ea) => SetDateLabelSize(12);
+            textSize14px.Click += (s, ea) => SetDateLabelSize(14);
+            textSize16px.Click += (s, ea) => SetDateLabelSize(16);
+            textSize18px.Click += (s, ea) => SetDateLabelSize(18);
+            textSize20px.Click += (s, ea) => SetDateLabelSize(20);
+
+            textColorBlack.Click += (s, ea) => SetDateLabelColor(Color.Black);
+            textColorWhite.Click += (s, ea) => SetDateLabelColor(Color.White);
+            textColorRed.Click += (s, ea) => SetDateLabelColor(Color.Red);
+            textColorGreen.Click += (s, ea) => SetDateLabelColor(Color.Green);
+            textColorLime.Click += (s, ea) => SetDateLabelColor(Color.Lime);
+            textColorBlue.Click += (s, ea) => SetDateLabelColor(Color.Blue);
+            textColorLightBlue.Click += (s, ea) => SetDateLabelColor(Color.LightBlue);
+            textColorYellow.Click += (s, ea) => SetDateLabelColor(Color.Yellow);
+            textColorCyan.Click += (s, ea) => SetDateLabelColor(Color.Cyan);
+            textColorMagenta.Click += (s, ea) => SetDateLabelColor(Color.Magenta);
         }
 
         #region Startup Shortcut

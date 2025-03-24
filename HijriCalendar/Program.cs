@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace HijriCalendar
+namespace hijri_calendar
 {
     internal static class Program
     {
