@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace hijri_calendar
@@ -15,12 +17,7 @@ namespace hijri_calendar
         {
             AddEventHandler();
 
-            SetDateLabelSize(Properties.Settings.Default.TextSize);
-            SetDateLabelColor(Properties.Settings.Default.TextColor);
-            showMonthName = Properties.Settings.Default.ShowMonthName;
-
-            int lang = Properties.Settings.Default.Language;
-            if (lang != 0) SetLangauge(lang);
+            SetPropertiesSettings();
 
             Focus();
             BringToFront();
@@ -60,7 +57,25 @@ namespace hijri_calendar
             dateLabel.Text = $"{year}/{month:D2}/{day:D2}{monthName}";
             #endregion
 
-            #region Form Position
+            GetFormPosition(pos);
+        }
+
+        #region Properties Settings Default
+        private void SetPropertiesSettings()
+        {
+            SetDateLabelSize(Properties.Settings.Default.TextSize);
+            SetDateLabelColor(Properties.Settings.Default.TextColor);
+            showMonthName = Properties.Settings.Default.ShowMonthName;
+
+            int lang = Properties.Settings.Default.Language;
+            if (lang != 0) SetLangauge(lang);
+
+            SetFormPosition((FormPosition)Properties.Settings.Default.FormPosition);
+            SetOpacity(Properties.Settings.Default.Opacity);
+        }
+
+        private void GetFormPosition(FormPosition pos)
+        {
             Rectangle rect = Screen.PrimaryScreen.WorkingArea;
             int screenWidth = rect.Width;
             int screenHeight = rect.Height;
@@ -68,12 +83,46 @@ namespace hijri_calendar
             this.Width = dateLabel.Width;
             this.Height = dateLabel.Height;
 
-            this.Left = screenWidth - this.Width;
-            this.Top = screenHeight - this.Height;
-            #endregion
+            if (pos == FormPosition.LeftTop)
+            {
+                this.Left = 0;
+                this.Top = 0;
+            }
+            else if (pos == FormPosition.RightTop)
+            {
+                this.Left = screenWidth - this.Width;
+                this.Top = 0;
+            }
+            else if (pos == FormPosition.LeftBottom)
+            {
+                this.Left = 0;
+                this.Top = screenHeight - this.Height;
+            }
+            else
+            {
+                this.Left = screenWidth - this.Width;
+                this.Top = screenHeight - this.Height;
+            }
         }
 
-        #region Properties Settings Default
+        FormPosition pos;
+        private void SetFormPosition(FormPosition pos)
+        {
+            this.pos = pos;
+
+            GetFormPosition(pos);
+
+            Properties.Settings.Default.FormPosition = (int)pos;
+            Properties.Settings.Default.Save();
+        }
+
+        private void SetOpacity(double opacity)
+        {
+            Opacity = opacity;
+            Properties.Settings.Default.Opacity = opacity;
+            Properties.Settings.Default.Save();
+        }
+
         private void SetDateLabelSize(float size)
         {
             dateLabel.Font = new Font(dateLabel.Font.FontFamily, size);
@@ -85,6 +134,10 @@ namespace hijri_calendar
         private void SetDateLabelColor(Color color)
         {
             dateLabel.ForeColor = color;
+            Color invert = Color.FromArgb(255 - color.R, 255 - color.G, 255 - color.B);
+            BackColor = invert;
+            TransparencyKey = invert;
+
             Properties.Settings.Default.TextColor = color;
             Properties.Settings.Default.Save();
         }
@@ -105,7 +158,7 @@ namespace hijri_calendar
             this.lang = lang;
             if (lang == 0)
             {
-
+                contextMenuStrip1.RightToLeft = RightToLeft.Yes;
                 shortcutStrip.Text = "التشغيل عند بدء الويندوز";
                 enableStrip.Text = "تفعيل";
                 disableStrip.Text = "تعطيل";
@@ -125,28 +178,43 @@ namespace hijri_calendar
                 updateStrip.Text = "تحديث التاريخ";
                 closeStrip.Text = "خروج";
                 languageList.Text = "اللغة";
+                formOpacityList.Text = "شفافية النص";
+                formPositionsList.Text = "موضع البرنامج";
+                leftTopStrip.Text = "أعلى اليسار";
+                rightTopStrip.Text = "أعلى اليمين";
+                leftBottomStrip.Text = "أسفل اليسار";
+                rightBottomStrip.Text = "أسفل اليمين";
+                progLinkStrip.Text = "رابط البرنامج";
             }
             else if (lang == 1)
             {
+                contextMenuStrip1.RightToLeft = RightToLeft.No;
                 shortcutStrip.Text = "Run at Windows startup";
                 enableStrip.Text = "Enable";
                 disableStrip.Text = "Disable";
-                textSizeList.Text = "Text size";
-                textColorList.Text = "Text color";
+                textSizeList.Text = "Text Size";
+                textColorList.Text = "Text Color";
                 textColorBlack.Text = "Black";
                 textColorWhite.Text = "White";
                 textColorRed.Text = "Red";
                 textColorGreen.Text = "Green";
                 textColorLime.Text = "Lime";
                 textColorBlue.Text = "Blue";
-                textColorLightBlue.Text = "Light blue";
+                textColorLightBlue.Text = "Light Blue";
                 textColorYellow.Text = "Yellow";
                 textColorCyan.Text = "Cyan";
                 textColorMagenta.Text = "Magenta";
-                showMonthNameStrip.Text = "Hide month name";
-                updateStrip.Text = "Update date";
+                showMonthNameStrip.Text = "Hide Month Name";
+                updateStrip.Text = "Update Date";
                 closeStrip.Text = "Exit";
                 languageList.Text = "Language";
+                formOpacityList.Text = "Text Opacity";
+                formPositionsList.Text = "Program Position";
+                leftTopStrip.Text = "Left Top";
+                rightTopStrip.Text = "Right Top";
+                leftBottomStrip.Text = "Left Bottom";
+                rightBottomStrip.Text = "Right Bottom";
+                progLinkStrip.Text = "The Program Link";
             }
             ShowMonthNameStripText();
             Properties.Settings.Default.Language = lang;
@@ -177,6 +245,7 @@ namespace hijri_calendar
             updateStrip.Click += (s, ea) => SetDate();
             closeStrip.Click += (s, ea) => Close();
             dateLabel.MouseHover += (s, ea) => SetDate();
+            progLinkStrip.Click += (s, ea) => Process.Start("https://github.com/MohamedAshref371/HijriCalendar/releases/latest");
 
             arabicStrip.Click += (s, ea) => SetLangauge(0);
             englishStrip.Click += (s, ea) => SetLangauge(1);
@@ -195,10 +264,22 @@ namespace hijri_calendar
             textColorGreen.Click += (s, ea) => SetDateLabelColor(Color.Green);
             textColorLime.Click += (s, ea) => SetDateLabelColor(Color.Lime);
             textColorBlue.Click += (s, ea) => SetDateLabelColor(Color.Blue);
-            textColorLightBlue.Click += (s, ea) => SetDateLabelColor(Color.LightBlue);
+            textColorLightBlue.Click += (s, ea) => SetDateLabelColor(Color.FromArgb(50, 100, 255));
             textColorYellow.Click += (s, ea) => SetDateLabelColor(Color.Yellow);
             textColorCyan.Click += (s, ea) => SetDateLabelColor(Color.Cyan);
             textColorMagenta.Click += (s, ea) => SetDateLabelColor(Color.Magenta);
+
+            leftTopStrip.Click += (s, ea) => SetFormPosition(FormPosition.LeftTop);
+            rightTopStrip.Click += (s, ea) => SetFormPosition(FormPosition.RightTop);
+            leftBottomStrip.Click += (s, ea) => SetFormPosition(FormPosition.LeftBottom);
+            rightBottomStrip.Click += (s, ea) => SetFormPosition(FormPosition.RightBottom);
+
+            opacity50Strip.Click += (s, ea) => SetOpacity(0.5);
+            opacity60Strip.Click += (s, ea) => SetOpacity(0.6);
+            opacity70Strip.Click += (s, ea) => SetOpacity(0.7);
+            opacity80Strip.Click += (s, ea) => SetOpacity(0.8);
+            opacity90Strip.Click += (s, ea) => SetOpacity(0.9);
+            opacity100Strip.Click += (s, ea) => SetOpacity(1.0);
         }
 
         #region Startup Shortcut

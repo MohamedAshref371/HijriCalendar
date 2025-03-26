@@ -55,12 +55,25 @@
             this.textColorYellow = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorCyan = new System.Windows.Forms.ToolStripMenuItem();
             this.textColorMagenta = new System.Windows.Forms.ToolStripMenuItem();
-            this.showMonthNameStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.languageList = new System.Windows.Forms.ToolStripMenuItem();
             this.arabicStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.englishStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.formPositionsList = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftTopStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightTopStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftBottomStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightBottomStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.formOpacityList = new System.Windows.Forms.ToolStripMenuItem();
+            this.opacity50Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.opacity60Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.opacity70Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.opacity80Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.opacity90Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.opacity100Strip = new System.Windows.Forms.ToolStripMenuItem();
+            this.showMonthNameStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.progLinkStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,11 +101,15 @@
             this.textSizeList,
             this.textColorList,
             this.languageList,
+            this.formPositionsList,
+            this.formOpacityList,
             this.showMonthNameStrip,
             this.updateStrip,
+            this.progLinkStrip,
             this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 180);
+            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 224);
             this.contextMenuStrip1.Text = "القائمة";
             // 
             // shortcutStrip
@@ -133,44 +150,51 @@
             // textSize8px
             // 
             this.textSize8px.Name = "textSize8px";
-            this.textSize8px.Size = new System.Drawing.Size(102, 22);
-            this.textSize8px.Text = "8 px";
+            this.textSize8px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize8px.Size = new System.Drawing.Size(99, 22);
+            this.textSize8px.Text = "8px";
             // 
             // textSize10px
             // 
             this.textSize10px.Name = "textSize10px";
-            this.textSize10px.Size = new System.Drawing.Size(102, 22);
-            this.textSize10px.Text = "10 px";
+            this.textSize10px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize10px.Size = new System.Drawing.Size(99, 22);
+            this.textSize10px.Text = "10px";
             // 
             // textSize12px
             // 
             this.textSize12px.Name = "textSize12px";
-            this.textSize12px.Size = new System.Drawing.Size(102, 22);
-            this.textSize12px.Text = "12 px";
+            this.textSize12px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize12px.Size = new System.Drawing.Size(99, 22);
+            this.textSize12px.Text = "12px";
             // 
             // textSize14px
             // 
             this.textSize14px.Name = "textSize14px";
-            this.textSize14px.Size = new System.Drawing.Size(102, 22);
-            this.textSize14px.Text = "14 px";
+            this.textSize14px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize14px.Size = new System.Drawing.Size(99, 22);
+            this.textSize14px.Text = "14px";
             // 
             // textSize16px
             // 
             this.textSize16px.Name = "textSize16px";
-            this.textSize16px.Size = new System.Drawing.Size(102, 22);
-            this.textSize16px.Text = "16 px";
+            this.textSize16px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize16px.Size = new System.Drawing.Size(99, 22);
+            this.textSize16px.Text = "16px";
             // 
             // textSize18px
             // 
             this.textSize18px.Name = "textSize18px";
-            this.textSize18px.Size = new System.Drawing.Size(102, 22);
-            this.textSize18px.Text = "18 px";
+            this.textSize18px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize18px.Size = new System.Drawing.Size(99, 22);
+            this.textSize18px.Text = "18px";
             // 
             // textSize20px
             // 
             this.textSize20px.Name = "textSize20px";
-            this.textSize20px.Size = new System.Drawing.Size(102, 22);
-            this.textSize20px.Text = "20 px";
+            this.textSize20px.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textSize20px.Size = new System.Drawing.Size(99, 22);
+            this.textSize20px.Text = "20px";
             // 
             // textColorList
             // 
@@ -249,24 +273,6 @@
             this.textColorMagenta.Size = new System.Drawing.Size(118, 22);
             this.textColorMagenta.Text = "قرمزي";
             // 
-            // showMonthNameStrip
-            // 
-            this.showMonthNameStrip.Name = "showMonthNameStrip";
-            this.showMonthNameStrip.Size = new System.Drawing.Size(194, 22);
-            this.showMonthNameStrip.Text = "إخفاء إسم الشهر";
-            // 
-            // updateStrip
-            // 
-            this.updateStrip.Name = "updateStrip";
-            this.updateStrip.Size = new System.Drawing.Size(194, 22);
-            this.updateStrip.Text = "تحديث التاريخ";
-            // 
-            // closeStrip
-            // 
-            this.closeStrip.Name = "closeStrip";
-            this.closeStrip.Size = new System.Drawing.Size(194, 22);
-            this.closeStrip.Text = "خروج";
-            // 
             // languageList
             // 
             this.languageList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -288,11 +294,125 @@
             this.englishStrip.Size = new System.Drawing.Size(112, 22);
             this.englishStrip.Text = "English";
             // 
+            // formPositionsList
+            // 
+            this.formPositionsList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leftTopStrip,
+            this.rightTopStrip,
+            this.leftBottomStrip,
+            this.rightBottomStrip});
+            this.formPositionsList.Name = "formPositionsList";
+            this.formPositionsList.Size = new System.Drawing.Size(194, 22);
+            this.formPositionsList.Text = "موضع البرنامج";
+            // 
+            // leftTopStrip
+            // 
+            this.leftTopStrip.Name = "leftTopStrip";
+            this.leftTopStrip.Size = new System.Drawing.Size(134, 22);
+            this.leftTopStrip.Text = "أعلى اليسار";
+            // 
+            // rightTopStrip
+            // 
+            this.rightTopStrip.Name = "rightTopStrip";
+            this.rightTopStrip.Size = new System.Drawing.Size(134, 22);
+            this.rightTopStrip.Text = "أعلى اليمين";
+            // 
+            // leftBottomStrip
+            // 
+            this.leftBottomStrip.Name = "leftBottomStrip";
+            this.leftBottomStrip.Size = new System.Drawing.Size(134, 22);
+            this.leftBottomStrip.Text = "أسفل اليسار";
+            // 
+            // rightBottomStrip
+            // 
+            this.rightBottomStrip.Name = "rightBottomStrip";
+            this.rightBottomStrip.Size = new System.Drawing.Size(134, 22);
+            this.rightBottomStrip.Text = "أسفل اليمين";
+            // 
+            // formOpacityList
+            // 
+            this.formOpacityList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opacity50Strip,
+            this.opacity60Strip,
+            this.opacity70Strip,
+            this.opacity80Strip,
+            this.opacity90Strip,
+            this.opacity100Strip});
+            this.formOpacityList.Name = "formOpacityList";
+            this.formOpacityList.Size = new System.Drawing.Size(194, 22);
+            this.formOpacityList.Text = "شفافية النص";
+            // 
+            // opacity50Strip
+            // 
+            this.opacity50Strip.Name = "opacity50Strip";
+            this.opacity50Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.opacity50Strip.Size = new System.Drawing.Size(102, 22);
+            this.opacity50Strip.Text = "50%";
+            // 
+            // opacity60Strip
+            // 
+            this.opacity60Strip.Name = "opacity60Strip";
+            this.opacity60Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.opacity60Strip.Size = new System.Drawing.Size(102, 22);
+            this.opacity60Strip.Text = "60%";
+            // 
+            // opacity70Strip
+            // 
+            this.opacity70Strip.Name = "opacity70Strip";
+            this.opacity70Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.opacity70Strip.Size = new System.Drawing.Size(102, 22);
+            this.opacity70Strip.Text = "70%";
+            // 
+            // opacity80Strip
+            // 
+            this.opacity80Strip.Name = "opacity80Strip";
+            this.opacity80Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.opacity80Strip.Size = new System.Drawing.Size(102, 22);
+            this.opacity80Strip.Text = "80%";
+            // 
+            // opacity90Strip
+            // 
+            this.opacity90Strip.Name = "opacity90Strip";
+            this.opacity90Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.opacity90Strip.Size = new System.Drawing.Size(102, 22);
+            this.opacity90Strip.Text = "90%";
+            // 
+            // opacity100Strip
+            // 
+            this.opacity100Strip.Name = "opacity100Strip";
+            this.opacity100Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.opacity100Strip.Size = new System.Drawing.Size(102, 22);
+            this.opacity100Strip.Text = "100%";
+            // 
+            // showMonthNameStrip
+            // 
+            this.showMonthNameStrip.Name = "showMonthNameStrip";
+            this.showMonthNameStrip.Size = new System.Drawing.Size(194, 22);
+            this.showMonthNameStrip.Text = "إخفاء إسم الشهر";
+            // 
+            // updateStrip
+            // 
+            this.updateStrip.Name = "updateStrip";
+            this.updateStrip.Size = new System.Drawing.Size(194, 22);
+            this.updateStrip.Text = "تحديث التاريخ";
+            // 
+            // progLinkStrip
+            // 
+            this.progLinkStrip.Name = "progLinkStrip";
+            this.progLinkStrip.Size = new System.Drawing.Size(194, 22);
+            this.progLinkStrip.Text = "رابط البرنامج";
+            // 
+            // closeStrip
+            // 
+            this.closeStrip.Name = "closeStrip";
+            this.closeStrip.Size = new System.Drawing.Size(194, 22);
+            this.closeStrip.Text = "خروج";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(147, 56);
             this.Controls.Add(this.dateLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -345,6 +465,19 @@
         private System.Windows.Forms.ToolStripMenuItem languageList;
         private System.Windows.Forms.ToolStripMenuItem arabicStrip;
         private System.Windows.Forms.ToolStripMenuItem englishStrip;
+        private System.Windows.Forms.ToolStripMenuItem formPositionsList;
+        private System.Windows.Forms.ToolStripMenuItem formOpacityList;
+        private System.Windows.Forms.ToolStripMenuItem progLinkStrip;
+        private System.Windows.Forms.ToolStripMenuItem leftTopStrip;
+        private System.Windows.Forms.ToolStripMenuItem rightTopStrip;
+        private System.Windows.Forms.ToolStripMenuItem leftBottomStrip;
+        private System.Windows.Forms.ToolStripMenuItem rightBottomStrip;
+        private System.Windows.Forms.ToolStripMenuItem opacity50Strip;
+        private System.Windows.Forms.ToolStripMenuItem opacity60Strip;
+        private System.Windows.Forms.ToolStripMenuItem opacity70Strip;
+        private System.Windows.Forms.ToolStripMenuItem opacity80Strip;
+        private System.Windows.Forms.ToolStripMenuItem opacity90Strip;
+        private System.Windows.Forms.ToolStripMenuItem opacity100Strip;
     }
 }
 
