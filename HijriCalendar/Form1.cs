@@ -64,6 +64,12 @@ namespace hijri_calendar
         private void SetPropertiesSettings()
         {
             var def = Properties.Settings.Default;
+
+            if (CheckStartupShortcut())
+                MenuItem_Click(enableStrip, EventArgs.Empty);
+            else
+                MenuItem_Click(disableStrip, EventArgs.Empty);
+
             SetDateLabelSize(def.TextSize);
             SelectMenuItemBySetting(textSizeList, def.TextSize);
 
@@ -312,6 +318,14 @@ namespace hijri_calendar
         #endregion
 
         #region Startup Shortcut
+        private bool CheckStartupShortcut()
+        {
+            string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string shortcutPath = Path.Combine(startupPath, $"{Application.ProductName} - Shortcut.lnk");
+
+            return File.Exists(shortcutPath);
+        }
+
         private void CreateStartupShortcut()
         {
             string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
