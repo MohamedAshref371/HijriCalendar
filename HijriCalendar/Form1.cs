@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace hijri_calendar
@@ -63,15 +63,35 @@ namespace hijri_calendar
         #region Properties Settings Default
         private void SetPropertiesSettings()
         {
-            SetDateLabelSize(Properties.Settings.Default.TextSize);
-            SetDateLabelColor(Properties.Settings.Default.TextColor);
-            showMonthName = Properties.Settings.Default.ShowMonthName;
+            var def = Properties.Settings.Default;
+            SetDateLabelSize(def.TextSize);
+            SelectMenuItemBySetting(textSizeList, def.TextSize);
 
-            int lang = Properties.Settings.Default.Language;
-            if (lang != 0) SetLangauge(lang);
+            SetDateLabelColor(def.TextColor);
+            SelectMenuItemBySetting(textColorList, def.TextColor);
 
-            SetFormPosition((FormPosition)Properties.Settings.Default.FormPosition);
-            SetOpacity(Properties.Settings.Default.Opacity);
+            SetLangauge(def.Language);
+            SelectMenuItemBySetting(languageList, def.Language);
+
+            SetFormPosition((FormPosition)def.FormPosition);
+            SelectMenuItemBySetting(formPositionsList, (FormPosition)def.FormPosition);
+
+            SetOpacity(def.Opacity);
+            SelectMenuItemBySetting(formOpacityList, def.Opacity);
+
+            showMonthName = def.ShowMonthName;
+        }
+
+        private void SelectMenuItemBySetting<T>(ToolStripMenuItem item, T value)
+        {
+            foreach (ToolStripMenuItem itm in item.DropDownItems)
+            {
+                if (itm.Tag is T tagValue && EqualityComparer<T>.Default.Equals(tagValue, value))
+                {
+                    MenuItem_Click(itm, EventArgs.Empty);
+                    break;
+                }
+            }
         }
 
         private void GetFormPosition(FormPosition pos)
@@ -236,51 +256,60 @@ namespace hijri_calendar
         }
         #endregion
 
+        #region Event Handlers
         private void AddEventHandler()
         {
+            SetMenuItemClickEvent(shortcutStrip);
             enableStrip.Click += (s, ea) => CreateStartupShortcut();
             disableStrip.Click += (s, ea) => DeleteStartupShortcut();
 
+            SetMenuItemClickEvent(languageList);
+            SetMenuItemClickEvent<int>(languageList, SetLangauge);
+
+            SetMenuItemClickEvent(textSizeList);
+            SetMenuItemClickEvent<float>(textSizeList, SetDateLabelSize);
+
+            SetMenuItemClickEvent(textColorList);
+            SetMenuItemClickEvent<Color>(textColorList, SetDateLabelColor);
+
+            SetMenuItemClickEvent(formPositionsList);
+            SetMenuItemClickEvent<FormPosition>(textColorList, SetFormPosition);
+
+            SetMenuItemClickEvent(formOpacityList);
+            SetMenuItemClickEvent<double>(formOpacityList, SetOpacity);
+
             showMonthNameStrip.Click += (s, ea) => SetShowMonthNameBoolean();
             updateStrip.Click += (s, ea) => SetDate();
-            closeStrip.Click += (s, ea) => Close();
             dateLabel.MouseHover += (s, ea) => SetDate();
             progLinkStrip.Click += (s, ea) => Process.Start("https://github.com/MohamedAshref371/HijriCalendar/releases/latest");
-
-            arabicStrip.Click += (s, ea) => SetLangauge(0);
-            englishStrip.Click += (s, ea) => SetLangauge(1);
-
-            textSize8px.Click += (s, ea) => SetDateLabelSize(8);
-            textSize10px.Click += (s, ea) => SetDateLabelSize(10);
-            textSize12px.Click += (s, ea) => SetDateLabelSize(12);
-            textSize14px.Click += (s, ea) => SetDateLabelSize(14);
-            textSize16px.Click += (s, ea) => SetDateLabelSize(16);
-            textSize18px.Click += (s, ea) => SetDateLabelSize(18);
-            textSize20px.Click += (s, ea) => SetDateLabelSize(20);
-
-            textColorBlack.Click += (s, ea) => SetDateLabelColor(Color.Black);
-            textColorWhite.Click += (s, ea) => SetDateLabelColor(Color.White);
-            textColorRed.Click += (s, ea) => SetDateLabelColor(Color.Red);
-            textColorGreen.Click += (s, ea) => SetDateLabelColor(Color.Green);
-            textColorLime.Click += (s, ea) => SetDateLabelColor(Color.Lime);
-            textColorBlue.Click += (s, ea) => SetDateLabelColor(Color.Blue);
-            textColorLightBlue.Click += (s, ea) => SetDateLabelColor(Color.FromArgb(50, 100, 255));
-            textColorYellow.Click += (s, ea) => SetDateLabelColor(Color.Yellow);
-            textColorCyan.Click += (s, ea) => SetDateLabelColor(Color.Cyan);
-            textColorMagenta.Click += (s, ea) => SetDateLabelColor(Color.Magenta);
-
-            leftTopStrip.Click += (s, ea) => SetFormPosition(FormPosition.LeftTop);
-            rightTopStrip.Click += (s, ea) => SetFormPosition(FormPosition.RightTop);
-            leftBottomStrip.Click += (s, ea) => SetFormPosition(FormPosition.LeftBottom);
-            rightBottomStrip.Click += (s, ea) => SetFormPosition(FormPosition.RightBottom);
-
-            opacity50Strip.Click += (s, ea) => SetOpacity(0.5);
-            opacity60Strip.Click += (s, ea) => SetOpacity(0.6);
-            opacity70Strip.Click += (s, ea) => SetOpacity(0.7);
-            opacity80Strip.Click += (s, ea) => SetOpacity(0.8);
-            opacity90Strip.Click += (s, ea) => SetOpacity(0.9);
-            opacity100Strip.Click += (s, ea) => SetOpacity(1.0);
+            closeStrip.Click += (s, ea) => Close();
         }
+
+        private void SetMenuItemClickEvent<T>(ToolStripMenuItem item, Action<T> method)
+        {
+            foreach (ToolStripMenuItem itm in item.DropDownItems)
+                itm.Click += (s, ea) => method((T)itm.Tag);
+        }
+
+        private void SetMenuItemClickEvent(ToolStripMenuItem item)
+        {
+            foreach (ToolStripMenuItem itm in item.DropDownItems)
+                itm.Click += MenuItem_Click;
+        }
+
+        private void MenuItem_Click(object sender, EventArgs e)
+        {
+            if (!(sender is ToolStripMenuItem clickedItem)) return;
+
+            ToolStrip parentMenu = clickedItem.GetCurrentParent();
+
+            foreach (ToolStripItem item in parentMenu.Items)
+                if (item is ToolStripMenuItem menuItem)
+                    menuItem.Checked = false;
+
+            clickedItem.Checked = true;
+        }
+        #endregion
 
         #region Startup Shortcut
         private void CreateStartupShortcut()

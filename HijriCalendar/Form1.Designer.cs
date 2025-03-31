@@ -1,4 +1,6 @@
-﻿namespace hijri_calendar
+﻿using System.Drawing;
+
+namespace hijri_calendar
 {
     partial class Form1
     {
@@ -109,7 +111,7 @@
             this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 224);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 246);
             this.contextMenuStrip1.Text = "القائمة";
             // 
             // shortcutStrip
@@ -151,49 +153,56 @@
             // 
             this.textSize8px.Name = "textSize8px";
             this.textSize8px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize8px.Size = new System.Drawing.Size(99, 22);
+            this.textSize8px.Size = new System.Drawing.Size(180, 22);
+            this.textSize8px.Tag = 8f;
             this.textSize8px.Text = "8px";
             // 
             // textSize10px
             // 
             this.textSize10px.Name = "textSize10px";
             this.textSize10px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize10px.Size = new System.Drawing.Size(99, 22);
+            this.textSize10px.Size = new System.Drawing.Size(180, 22);
+            this.textSize10px.Tag = 10f;
             this.textSize10px.Text = "10px";
             // 
             // textSize12px
             // 
             this.textSize12px.Name = "textSize12px";
             this.textSize12px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize12px.Size = new System.Drawing.Size(99, 22);
+            this.textSize12px.Size = new System.Drawing.Size(180, 22);
+            this.textSize12px.Tag = 12f;
             this.textSize12px.Text = "12px";
             // 
             // textSize14px
             // 
             this.textSize14px.Name = "textSize14px";
             this.textSize14px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize14px.Size = new System.Drawing.Size(99, 22);
+            this.textSize14px.Size = new System.Drawing.Size(180, 22);
+            this.textSize14px.Tag = 14f;
             this.textSize14px.Text = "14px";
             // 
             // textSize16px
             // 
             this.textSize16px.Name = "textSize16px";
             this.textSize16px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize16px.Size = new System.Drawing.Size(99, 22);
+            this.textSize16px.Size = new System.Drawing.Size(180, 22);
+            this.textSize16px.Tag = 16f;
             this.textSize16px.Text = "16px";
             // 
             // textSize18px
             // 
             this.textSize18px.Name = "textSize18px";
             this.textSize18px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize18px.Size = new System.Drawing.Size(99, 22);
+            this.textSize18px.Size = new System.Drawing.Size(180, 22);
+            this.textSize18px.Tag = 18f;
             this.textSize18px.Text = "18px";
             // 
             // textSize20px
             // 
             this.textSize20px.Name = "textSize20px";
             this.textSize20px.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textSize20px.Size = new System.Drawing.Size(99, 22);
+            this.textSize20px.Size = new System.Drawing.Size(180, 22);
+            this.textSize20px.Tag = 20f;
             this.textSize20px.Text = "20px";
             // 
             // textColorList
@@ -218,60 +227,70 @@
             this.textColorBlack.Name = "textColorBlack";
             this.textColorBlack.Size = new System.Drawing.Size(118, 22);
             this.textColorBlack.Text = "أسود";
+            textColorBlack.Tag = Color.Black;
             // 
             // textColorWhite
             // 
             this.textColorWhite.Name = "textColorWhite";
             this.textColorWhite.Size = new System.Drawing.Size(118, 22);
             this.textColorWhite.Text = "أبيض";
+            textColorWhite.Tag = Color.White;
             // 
             // textColorRed
             // 
             this.textColorRed.Name = "textColorRed";
             this.textColorRed.Size = new System.Drawing.Size(118, 22);
             this.textColorRed.Text = "أحمر";
+            textColorRed.Tag = Color.Red;
             // 
             // textColorGreen
             // 
             this.textColorGreen.Name = "textColorGreen";
             this.textColorGreen.Size = new System.Drawing.Size(118, 22);
             this.textColorGreen.Text = "أخضر";
+            textColorGreen.Tag = Color.Green;
             // 
             // textColorLime
             // 
             this.textColorLime.Name = "textColorLime";
             this.textColorLime.Size = new System.Drawing.Size(118, 22);
             this.textColorLime.Text = "ليموني";
+            textColorLime.Tag = Color.Lime;
             // 
             // textColorBlue
             // 
             this.textColorBlue.Name = "textColorBlue";
             this.textColorBlue.Size = new System.Drawing.Size(118, 22);
             this.textColorBlue.Text = "أزرق";
+            textColorBlue.Tag = Color.Blue;
             // 
             // textColorLightBlue
             // 
             this.textColorLightBlue.Name = "textColorLightBlue";
             this.textColorLightBlue.Size = new System.Drawing.Size(118, 22);
             this.textColorLightBlue.Text = "أزرق فاتح";
+            textColorLightBlue.Tag = Color.FromArgb(50, 100, 255);
             // 
             // textColorYellow
             // 
             this.textColorYellow.Name = "textColorYellow";
             this.textColorYellow.Size = new System.Drawing.Size(118, 22);
             this.textColorYellow.Text = "أصفر";
+            textColorYellow.Tag = Color.Yellow;
             // 
             // textColorCyan
             // 
             this.textColorCyan.Name = "textColorCyan";
             this.textColorCyan.Size = new System.Drawing.Size(118, 22);
             this.textColorCyan.Text = "سماوي";
+            textColorCyan.Tag = Color.Cyan;
             // 
             // textColorMagenta
             // 
             this.textColorMagenta.Name = "textColorMagenta";
             this.textColorMagenta.Size = new System.Drawing.Size(118, 22);
             this.textColorMagenta.Text = "قرمزي";
+            textColorMagenta.Tag = Color.Magenta;
             // 
             // languageList
             // 
@@ -287,12 +306,14 @@
             this.arabicStrip.Name = "arabicStrip";
             this.arabicStrip.Size = new System.Drawing.Size(112, 22);
             this.arabicStrip.Text = "العربية";
+            arabicStrip.Tag = 0;
             // 
             // englishStrip
             // 
             this.englishStrip.Name = "englishStrip";
             this.englishStrip.Size = new System.Drawing.Size(112, 22);
             this.englishStrip.Text = "English";
+            englishStrip.Tag = 1;
             // 
             // formPositionsList
             // 
@@ -310,24 +331,28 @@
             this.leftTopStrip.Name = "leftTopStrip";
             this.leftTopStrip.Size = new System.Drawing.Size(134, 22);
             this.leftTopStrip.Text = "أعلى اليسار";
+            leftTopStrip.Tag = FormPosition.LeftTop;
             // 
             // rightTopStrip
             // 
             this.rightTopStrip.Name = "rightTopStrip";
             this.rightTopStrip.Size = new System.Drawing.Size(134, 22);
             this.rightTopStrip.Text = "أعلى اليمين";
+            rightTopStrip.Tag = FormPosition.RightTop;
             // 
             // leftBottomStrip
             // 
             this.leftBottomStrip.Name = "leftBottomStrip";
             this.leftBottomStrip.Size = new System.Drawing.Size(134, 22);
             this.leftBottomStrip.Text = "أسفل اليسار";
+            leftBottomStrip.Tag = FormPosition.LeftBottom;
             // 
             // rightBottomStrip
             // 
             this.rightBottomStrip.Name = "rightBottomStrip";
             this.rightBottomStrip.Size = new System.Drawing.Size(134, 22);
             this.rightBottomStrip.Text = "أسفل اليمين";
+            rightBottomStrip.Tag = FormPosition.RightBottom;
             // 
             // formOpacityList
             // 
@@ -348,6 +373,7 @@
             this.opacity50Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity50Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity50Strip.Text = "50%";
+            opacity50Strip.Tag = 0.5;
             // 
             // opacity60Strip
             // 
@@ -355,6 +381,7 @@
             this.opacity60Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity60Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity60Strip.Text = "60%";
+            opacity60Strip.Tag = 0.6;
             // 
             // opacity70Strip
             // 
@@ -362,6 +389,7 @@
             this.opacity70Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity70Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity70Strip.Text = "70%";
+            opacity70Strip.Tag = 0.7;
             // 
             // opacity80Strip
             // 
@@ -369,6 +397,7 @@
             this.opacity80Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity80Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity80Strip.Text = "80%";
+            opacity80Strip.Tag = 0.8;
             // 
             // opacity90Strip
             // 
@@ -376,6 +405,7 @@
             this.opacity90Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity90Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity90Strip.Text = "90%";
+            opacity90Strip.Tag = 0.9;
             // 
             // opacity100Strip
             // 
@@ -383,6 +413,7 @@
             this.opacity100Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity100Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity100Strip.Text = "100%";
+            opacity100Strip.Tag = 1.0;
             // 
             // showMonthNameStrip
             // 
