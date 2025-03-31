@@ -65,7 +65,7 @@ namespace hijri_calendar
         {
             var def = Properties.Settings.Default;
 
-            if (CheckStartupShortcut())
+            if (def.Shortcut)
                 MenuItem_Click(enableStrip, EventArgs.Empty);
             else
                 MenuItem_Click(disableStrip, EventArgs.Empty);
@@ -318,14 +318,6 @@ namespace hijri_calendar
         #endregion
 
         #region Startup Shortcut
-        private bool CheckStartupShortcut()
-        {
-            string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-            string shortcutPath = Path.Combine(startupPath, $"{Application.ProductName} - Shortcut.lnk");
-
-            return File.Exists(shortcutPath);
-        }
-
         private void CreateStartupShortcut()
         {
             string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
@@ -344,6 +336,9 @@ namespace hijri_calendar
             shortcut.IconLocation = Application.ExecutablePath;
 
             shortcut.Save();
+
+            Properties.Settings.Default.Shortcut = true;
+            Properties.Settings.Default.Save();
         }
 
         public void DeleteStartupShortcut()
@@ -353,6 +348,9 @@ namespace hijri_calendar
 
             if (File.Exists(shortcutPath))
                 File.Delete(shortcutPath);
+
+            Properties.Settings.Default.Shortcut = false;
+            Properties.Settings.Default.Save();
         }
         #endregion
 
