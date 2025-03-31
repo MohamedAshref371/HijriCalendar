@@ -273,7 +273,7 @@ namespace hijri_calendar
             SetMenuItemClickEvent<Color>(textColorList, SetDateLabelColor);
 
             SetMenuItemClickEvent(formPositionsList);
-            SetMenuItemClickEvent<FormPosition>(textColorList, SetFormPosition);
+            SetMenuItemClickEvent<FormPosition>(formPositionsList, SetFormPosition);
 
             SetMenuItemClickEvent(formOpacityList);
             SetMenuItemClickEvent<double>(formOpacityList, SetOpacity);
