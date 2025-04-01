@@ -200,17 +200,17 @@ namespace hijri_calendar
                 textColorYellow.Text = "أصفر";
                 textColorCyan.Text = "سماوي";
                 textColorMagenta.Text = "قرمزي";
-                showMonthNameStrip.Text = "إخفاء إسم الشهر";
-                updateStrip.Text = "تحديث التاريخ";
-                closeStrip.Text = "خروج";
                 languageList.Text = "اللغة";
-                formOpacityList.Text = "شفافية النص";
                 formPositionsList.Text = "موضع البرنامج";
                 leftTopStrip.Text = "أعلى اليسار";
                 rightTopStrip.Text = "أعلى اليمين";
                 leftBottomStrip.Text = "أسفل اليسار";
                 rightBottomStrip.Text = "أسفل اليمين";
+                formOpacityList.Text = "شفافية النص";
+                showMonthNameStrip.Text = "إخفاء إسم الشهر";
+                updateStrip.Text = "تحديث التاريخ";
                 progLinkStrip.Text = "رابط البرنامج";
+                closeStrip.Text = "خروج";
             }
             else if (lang == 1)
             {
@@ -230,17 +230,17 @@ namespace hijri_calendar
                 textColorYellow.Text = "Yellow";
                 textColorCyan.Text = "Cyan";
                 textColorMagenta.Text = "Magenta";
-                showMonthNameStrip.Text = "Hide Month Name";
-                updateStrip.Text = "Update Date";
-                closeStrip.Text = "Exit";
                 languageList.Text = "Language";
-                formOpacityList.Text = "Text Opacity";
                 formPositionsList.Text = "Program Position";
                 leftTopStrip.Text = "Left Top";
                 rightTopStrip.Text = "Right Top";
                 leftBottomStrip.Text = "Left Bottom";
                 rightBottomStrip.Text = "Right Bottom";
+                formOpacityList.Text = "Text Opacity";
+                showMonthNameStrip.Text = "Hide Month Name";
+                updateStrip.Text = "Update Date";
                 progLinkStrip.Text = "The Program Link";
+                closeStrip.Text = "Exit";
             }
             ShowMonthNameStripText();
             Properties.Settings.Default.Language = lang;
