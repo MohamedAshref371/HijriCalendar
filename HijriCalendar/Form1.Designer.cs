@@ -227,70 +227,70 @@ namespace hijri_calendar
             this.textColorBlack.Name = "textColorBlack";
             this.textColorBlack.Size = new System.Drawing.Size(118, 22);
             this.textColorBlack.Text = "أسود";
-            textColorBlack.Tag = Color.Black;
+            this.textColorBlack.Tag = Color.Black;
             // 
             // textColorWhite
             // 
             this.textColorWhite.Name = "textColorWhite";
             this.textColorWhite.Size = new System.Drawing.Size(118, 22);
             this.textColorWhite.Text = "أبيض";
-            textColorWhite.Tag = Color.White;
+            this.textColorWhite.Tag = Color.White;
             // 
             // textColorRed
             // 
             this.textColorRed.Name = "textColorRed";
             this.textColorRed.Size = new System.Drawing.Size(118, 22);
             this.textColorRed.Text = "أحمر";
-            textColorRed.Tag = Color.Red;
+            this.textColorRed.Tag = Color.Red;
             // 
             // textColorGreen
             // 
             this.textColorGreen.Name = "textColorGreen";
             this.textColorGreen.Size = new System.Drawing.Size(118, 22);
             this.textColorGreen.Text = "أخضر";
-            textColorGreen.Tag = Color.Green;
+            this.textColorGreen.Tag = Color.Green;
             // 
             // textColorLime
             // 
             this.textColorLime.Name = "textColorLime";
             this.textColorLime.Size = new System.Drawing.Size(118, 22);
             this.textColorLime.Text = "ليموني";
-            textColorLime.Tag = Color.Lime;
+            this.textColorLime.Tag = Color.Lime;
             // 
             // textColorBlue
             // 
             this.textColorBlue.Name = "textColorBlue";
             this.textColorBlue.Size = new System.Drawing.Size(118, 22);
             this.textColorBlue.Text = "أزرق";
-            textColorBlue.Tag = Color.Blue;
+            this.textColorBlue.Tag = Color.Blue;
             // 
             // textColorLightBlue
             // 
             this.textColorLightBlue.Name = "textColorLightBlue";
             this.textColorLightBlue.Size = new System.Drawing.Size(118, 22);
             this.textColorLightBlue.Text = "أزرق فاتح";
-            textColorLightBlue.Tag = Color.FromArgb(50, 100, 255);
+            this.textColorLightBlue.Tag = Color.FromArgb(50, 100, 255);
             // 
             // textColorYellow
             // 
             this.textColorYellow.Name = "textColorYellow";
             this.textColorYellow.Size = new System.Drawing.Size(118, 22);
             this.textColorYellow.Text = "أصفر";
-            textColorYellow.Tag = Color.Yellow;
+            this.textColorYellow.Tag = Color.Yellow;
             // 
             // textColorCyan
             // 
             this.textColorCyan.Name = "textColorCyan";
             this.textColorCyan.Size = new System.Drawing.Size(118, 22);
             this.textColorCyan.Text = "سماوي";
-            textColorCyan.Tag = Color.Cyan;
+            this.textColorCyan.Tag = Color.Cyan;
             // 
             // textColorMagenta
             // 
             this.textColorMagenta.Name = "textColorMagenta";
             this.textColorMagenta.Size = new System.Drawing.Size(118, 22);
             this.textColorMagenta.Text = "قرمزي";
-            textColorMagenta.Tag = Color.Magenta;
+            this.textColorMagenta.Tag = Color.Magenta;
             // 
             // languageList
             // 
@@ -306,14 +306,14 @@ namespace hijri_calendar
             this.arabicStrip.Name = "arabicStrip";
             this.arabicStrip.Size = new System.Drawing.Size(112, 22);
             this.arabicStrip.Text = "العربية";
-            arabicStrip.Tag = 0;
+            this.arabicStrip.Tag = 0;
             // 
             // englishStrip
             // 
             this.englishStrip.Name = "englishStrip";
             this.englishStrip.Size = new System.Drawing.Size(112, 22);
             this.englishStrip.Text = "English";
-            englishStrip.Tag = 1;
+            this.englishStrip.Tag = 1;
             // 
             // formPositionsList
             // 
@@ -331,28 +331,28 @@ namespace hijri_calendar
             this.leftTopStrip.Name = "leftTopStrip";
             this.leftTopStrip.Size = new System.Drawing.Size(134, 22);
             this.leftTopStrip.Text = "أعلى اليسار";
-            leftTopStrip.Tag = FormPosition.LeftTop;
+            this.leftTopStrip.Tag = FormPosition.LeftTop;
             // 
             // rightTopStrip
             // 
             this.rightTopStrip.Name = "rightTopStrip";
             this.rightTopStrip.Size = new System.Drawing.Size(134, 22);
             this.rightTopStrip.Text = "أعلى اليمين";
-            rightTopStrip.Tag = FormPosition.RightTop;
+            this.rightTopStrip.Tag = FormPosition.RightTop;
             // 
             // leftBottomStrip
             // 
             this.leftBottomStrip.Name = "leftBottomStrip";
             this.leftBottomStrip.Size = new System.Drawing.Size(134, 22);
             this.leftBottomStrip.Text = "أسفل اليسار";
-            leftBottomStrip.Tag = FormPosition.LeftBottom;
+            this.leftBottomStrip.Tag = FormPosition.LeftBottom;
             // 
             // rightBottomStrip
             // 
             this.rightBottomStrip.Name = "rightBottomStrip";
             this.rightBottomStrip.Size = new System.Drawing.Size(134, 22);
             this.rightBottomStrip.Text = "أسفل اليمين";
-            rightBottomStrip.Tag = FormPosition.RightBottom;
+            this.rightBottomStrip.Tag = FormPosition.RightBottom;
             // 
             // formOpacityList
             // 
@@ -373,7 +373,7 @@ namespace hijri_calendar
             this.opacity50Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity50Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity50Strip.Text = "50%";
-            opacity50Strip.Tag = 0.5;
+            this.opacity50Strip.Tag = 0.5;
             // 
             // opacity60Strip
             // 
@@ -381,7 +381,7 @@ namespace hijri_calendar
             this.opacity60Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity60Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity60Strip.Text = "60%";
-            opacity60Strip.Tag = 0.6;
+            this.opacity60Strip.Tag = 0.6;
             // 
             // opacity70Strip
             // 
@@ -389,7 +389,7 @@ namespace hijri_calendar
             this.opacity70Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity70Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity70Strip.Text = "70%";
-            opacity70Strip.Tag = 0.7;
+            this.opacity70Strip.Tag = 0.7;
             // 
             // opacity80Strip
             // 
@@ -397,7 +397,7 @@ namespace hijri_calendar
             this.opacity80Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity80Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity80Strip.Text = "80%";
-            opacity80Strip.Tag = 0.8;
+            this.opacity80Strip.Tag = 0.8;
             // 
             // opacity90Strip
             // 
@@ -405,7 +405,7 @@ namespace hijri_calendar
             this.opacity90Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity90Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity90Strip.Text = "90%";
-            opacity90Strip.Tag = 0.9;
+            this.opacity90Strip.Tag = 0.9;
             // 
             // opacity100Strip
             // 
@@ -413,7 +413,7 @@ namespace hijri_calendar
             this.opacity100Strip.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.opacity100Strip.Size = new System.Drawing.Size(102, 22);
             this.opacity100Strip.Text = "100%";
-            opacity100Strip.Tag = 1.0;
+            this.opacity100Strip.Tag = 1.0;
             // 
             // showMonthNameStrip
             // 
