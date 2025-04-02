@@ -128,14 +128,14 @@ namespace hijri_calendar
             // enableStrip
             // 
             this.enableStrip.Name = "enableStrip";
-            this.enableStrip.Size = new System.Drawing.Size(107, 22);
+            this.enableStrip.Size = new System.Drawing.Size(106, 22);
             this.enableStrip.Text = "تفعيل";
             // 
             // disableStrip
             // 
             this.disableStrip.Name = "disableStrip";
-            this.disableStrip.Size = new System.Drawing.Size(107, 22);
-            this.disableStrip.Text = "تعطيل";
+            this.disableStrip.Size = new System.Drawing.Size(106, 22);
+            this.disableStrip.Text = "معطل";
             // 
             // textSizeList
             // 
