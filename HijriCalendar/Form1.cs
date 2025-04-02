@@ -65,10 +65,8 @@ namespace hijri_calendar
         {
             var def = Properties.Settings.Default;
 
-            if (def.Shortcut)
-                MenuItem_Click(enableStrip, EventArgs.Empty);
-            else
-                MenuItem_Click(disableStrip, EventArgs.Empty);
+            winStartup = def.WindowsStartup;
+            MenuItem_Click(winStartup ? enableStrip : disableStrip, EventArgs.Empty);
 
             SetDateLabelSize(def.TextSize);
             SelectMenuItemBySetting(textSizeList, def.TextSize);
@@ -172,7 +170,7 @@ namespace hijri_calendar
         {
             showMonthName = !showMonthName;
 
-            showMonthNameStrip.Text = ShowMonthNameStripText();
+            SetShowMonthNameStripText();
             Properties.Settings.Default.ShowMonthName = showMonthName;
             Properties.Settings.Default.Save();
             SetDate();
@@ -185,9 +183,7 @@ namespace hijri_calendar
             if (lang == 0)
             {
                 contextMenuStrip1.RightToLeft = RightToLeft.Yes;
-                shortcutStrip.Text = "التشغيل عند بدء الويندوز";
-                enableStrip.Text = "تفعيل";
-                disableStrip.Text = "تعطيل";
+                windowsStartupStrip.Text = "التشغيل عند بدء الويندوز";
                 textSizeList.Text = "حجم الخط";
                 textColorList.Text = "لون الخط";
                 textColorBlack.Text = "أسود";
@@ -215,9 +211,7 @@ namespace hijri_calendar
             else if (lang == 1)
             {
                 contextMenuStrip1.RightToLeft = RightToLeft.No;
-                shortcutStrip.Text = "Run at Windows startup";
-                enableStrip.Text = "Enable";
-                disableStrip.Text = "Disable";
+                windowsStartupStrip.Text = "Run at Windows startup";
                 textSizeList.Text = "Text Size";
                 textColorList.Text = "Text Color";
                 textColorBlack.Text = "Black";
@@ -242,30 +236,64 @@ namespace hijri_calendar
                 progLinkStrip.Text = "The Program Link";
                 closeStrip.Text = "Exit";
             }
-            ShowMonthNameStripText();
+            SetWindowsStartupStripText();
+            SetShowMonthNameStripText();
             Properties.Settings.Default.Language = lang;
             Properties.Settings.Default.Save();
         }
 
-        private string ShowMonthNameStripText()
+        bool winStartup;
+        private void SetWindowsStartupStripText()
         {
             if (lang == 1)
             {
-                if (showMonthName) return "Hide month name";
-                else return "Show month name";
+                if (winStartup)
+                {
+                    enableStrip.Text = "Enabled";
+                    disableStrip.Text = "Disable";
+                }
+                else
+                {
+                    enableStrip.Text = "Enable";
+                    disableStrip.Text = "Disabled";
+                }
             }
             else
             {
-                if (showMonthName) return "إخفاء إسم الشهر";
-                else return "إظهار إسم الشهر";
+                if (winStartup)
+                {
+                    enableStrip.Text = "مفعل";
+                    disableStrip.Text = "تعطيل";
+                }
+                else
+                {
+                    enableStrip.Text = "تفعيل";
+                    disableStrip.Text = "معطل";
+                }
             }
+        }
+
+        private void SetShowMonthNameStripText()
+        {
+            string s;
+            if (lang == 1)
+            {
+                if (showMonthName) s = "Hide month name";
+                else s = "Show month name";
+            }
+            else
+            {
+                if (showMonthName) s = "إخفاء إسم الشهر";
+                else s = "إظهار إسم الشهر";
+            }
+            showMonthNameStrip.Text = s;
         }
         #endregion
 
         #region Event Handlers
         private void AddEventHandler()
         {
-            SetMenuItemClickEvent(shortcutStrip);
+            SetMenuItemClickEvent(windowsStartupStrip);
             enableStrip.Click += (s, ea) => CreateStartupShortcut();
             disableStrip.Click += (s, ea) => DeleteStartupShortcut();
 
@@ -337,7 +365,9 @@ namespace hijri_calendar
 
             shortcut.Save();
 
-            Properties.Settings.Default.Shortcut = true;
+            winStartup = true;
+            SetWindowsStartupStripText();
+            Properties.Settings.Default.WindowsStartup = true;
             Properties.Settings.Default.Save();
         }
 
@@ -349,7 +379,9 @@ namespace hijri_calendar
             if (File.Exists(shortcutPath))
                 File.Delete(shortcutPath);
 
-            Properties.Settings.Default.Shortcut = false;
+            winStartup = false;
+            SetWindowsStartupStripText();
+            Properties.Settings.Default.WindowsStartup = false;
             Properties.Settings.Default.Save();
         }
         #endregion

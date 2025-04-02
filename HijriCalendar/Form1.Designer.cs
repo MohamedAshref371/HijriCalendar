@@ -35,7 +35,7 @@ namespace hijri_calendar
             this.dateLabel = new System.Windows.Forms.Label();
             this.Hijri = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.shortcutStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowsStartupStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.enableStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.disableStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.textSizeList = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,7 +101,7 @@ namespace hijri_calendar
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.shortcutStrip,
+            this.windowsStartupStrip,
             this.textSizeList,
             this.textColorList,
             this.languageList,
@@ -113,17 +113,17 @@ namespace hijri_calendar
             this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 224);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 246);
             this.contextMenuStrip1.Text = "القائمة";
             // 
-            // shortcutStrip
+            // windowsStartupStrip
             // 
-            this.shortcutStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.windowsStartupStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enableStrip,
             this.disableStrip});
-            this.shortcutStrip.Name = "shortcutStrip";
-            this.shortcutStrip.Size = new System.Drawing.Size(194, 22);
-            this.shortcutStrip.Text = "التشغيل عند بدء الويندوز";
+            this.windowsStartupStrip.Name = "windowsStartupStrip";
+            this.windowsStartupStrip.Size = new System.Drawing.Size(194, 22);
+            this.windowsStartupStrip.Text = "التشغيل عند بدء الويندوز";
             // 
             // enableStrip
             // 
@@ -470,7 +470,7 @@ namespace hijri_calendar
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.NotifyIcon Hijri;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem shortcutStrip;
+        private System.Windows.Forms.ToolStripMenuItem windowsStartupStrip;
         private System.Windows.Forms.ToolStripMenuItem closeStrip;
         private System.Windows.Forms.ToolStripMenuItem enableStrip;
         private System.Windows.Forms.ToolStripMenuItem disableStrip;

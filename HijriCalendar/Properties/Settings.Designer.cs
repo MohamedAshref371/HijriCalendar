@@ -98,12 +98,12 @@ namespace hijri_calendar.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Shortcut {
+        public bool WindowsStartup {
             get {
-                return ((bool)(this["Shortcut"]));
+                return ((bool)(this["WindowsStartup"]));
             }
             set {
-                this["Shortcut"] = value;
+                this["WindowsStartup"] = value;
             }
         }
     }
