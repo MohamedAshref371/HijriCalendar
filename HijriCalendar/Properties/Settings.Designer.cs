@@ -26,12 +26,12 @@ namespace hijri_calendar.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("16")]
-        public float TextSize {
+        public float FontSize {
             get {
-                return ((float)(this["TextSize"]));
+                return ((float)(this["FontSize"]));
             }
             set {
-                this["TextSize"] = value;
+                this["FontSize"] = value;
             }
         }
         
@@ -104,6 +104,30 @@ namespace hijri_calendar.Properties {
             }
             set {
                 this["WindowsStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tahoma")]
+        public string FontType {
+            get {
+                return ((string)(this["FontType"]));
+            }
+            set {
+                this["FontType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int FontStyle {
+            get {
+                return ((int)(this["FontStyle"]));
+            }
+            set {
+                this["FontStyle"] = value;
             }
         }
     }

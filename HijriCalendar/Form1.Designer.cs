@@ -38,7 +38,17 @@ namespace hijri_calendar
             this.windowsStartupStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.enableStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.disableStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.textSizeList = new System.Windows.Forms.ToolStripMenuItem();
+            this.textProperties = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontTypeList = new System.Windows.Forms.ToolStripMenuItem();
+            this.arialFontStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.tahomaFontStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.romanFontStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontStyleList = new System.Windows.Forms.ToolStripMenuItem();
+            this.regularStyleStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.boldStyleStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.italicStyleStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.boldItalicStyleStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSizeList = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize8px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize10px = new System.Windows.Forms.ToolStripMenuItem();
             this.textSize12px = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,10 +71,6 @@ namespace hijri_calendar
             this.arabicStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.englishStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.formPositionsList = new System.Windows.Forms.ToolStripMenuItem();
-            this.leftTopStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.rightTopStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.leftBottomStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.rightBottomStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.formOpacityList = new System.Windows.Forms.ToolStripMenuItem();
             this.opacity50Strip = new System.Windows.Forms.ToolStripMenuItem();
             this.opacity60Strip = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,6 +82,10 @@ namespace hijri_calendar
             this.updateStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.progLinkStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.closeStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftTopStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightTopStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftBottomStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightBottomStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,8 +112,7 @@ namespace hijri_calendar
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.windowsStartupStrip,
-            this.textSizeList,
-            this.textColorList,
+            this.textProperties,
             this.languageList,
             this.formPositionsList,
             this.formOpacityList,
@@ -113,7 +122,7 @@ namespace hijri_calendar
             this.closeStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 246);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 224);
             this.contextMenuStrip1.Text = "القائمة";
             // 
             // windowsStartupStrip
@@ -137,9 +146,99 @@ namespace hijri_calendar
             this.disableStrip.Size = new System.Drawing.Size(106, 22);
             this.disableStrip.Text = "معطل";
             // 
-            // textSizeList
+            // textProperties
             // 
-            this.textSizeList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.textProperties.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontTypeList,
+            this.fontStyleList,
+            this.fontSizeList,
+            this.textColorList});
+            this.textProperties.Name = "textProperties";
+            this.textProperties.Size = new System.Drawing.Size(194, 22);
+            this.textProperties.Text = "خصائص الخط";
+            // 
+            // fontTypeList
+            // 
+            this.fontTypeList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arialFontStrip,
+            this.tahomaFontStrip,
+            this.romanFontStrip});
+            this.fontTypeList.Name = "fontTypeList";
+            this.fontTypeList.Size = new System.Drawing.Size(180, 22);
+            this.fontTypeList.Text = "نوع الخط";
+            // 
+            // arialFontStrip
+            // 
+            this.arialFontStrip.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arialFontStrip.Name = "arialFontStrip";
+            this.arialFontStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.arialFontStrip.Size = new System.Drawing.Size(167, 22);
+            this.arialFontStrip.Tag = "Arial";
+            this.arialFontStrip.Text = "Arial";
+            // 
+            // tahomaFontStrip
+            // 
+            this.tahomaFontStrip.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tahomaFontStrip.Name = "tahomaFontStrip";
+            this.tahomaFontStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tahomaFontStrip.Size = new System.Drawing.Size(167, 22);
+            this.tahomaFontStrip.Tag = "Tahoma";
+            this.tahomaFontStrip.Text = "Tahoma";
+            // 
+            // romanFontStrip
+            // 
+            this.romanFontStrip.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.romanFontStrip.Name = "romanFontStrip";
+            this.romanFontStrip.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.romanFontStrip.Size = new System.Drawing.Size(167, 22);
+            this.romanFontStrip.Tag = "Times New Roman";
+            this.romanFontStrip.Text = "Times New Roman";
+            // 
+            // fontStyleList
+            // 
+            this.fontStyleList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regularStyleStrip,
+            this.boldStyleStrip,
+            this.italicStyleStrip,
+            this.boldItalicStyleStrip});
+            this.fontStyleList.Name = "fontStyleList";
+            this.fontStyleList.Size = new System.Drawing.Size(180, 22);
+            this.fontStyleList.Text = "نمط الخط";
+            // 
+            // regularStyleStrip
+            // 
+            this.regularStyleStrip.Name = "regularStyleStrip";
+            this.regularStyleStrip.Size = new System.Drawing.Size(125, 22);
+            this.regularStyleStrip.Tag = 0;
+            this.regularStyleStrip.Text = "عادي";
+            // 
+            // boldStyleStrip
+            // 
+            this.boldStyleStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.boldStyleStrip.Name = "boldStyleStrip";
+            this.boldStyleStrip.Size = new System.Drawing.Size(125, 22);
+            this.boldStyleStrip.Tag = 1;
+            this.boldStyleStrip.Text = "سميك";
+            // 
+            // italicStyleStrip
+            // 
+            this.italicStyleStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
+            this.italicStyleStrip.Name = "italicStyleStrip";
+            this.italicStyleStrip.Size = new System.Drawing.Size(125, 22);
+            this.italicStyleStrip.Tag = 2;
+            this.italicStyleStrip.Text = "مائل";
+            // 
+            // boldItalicStyleStrip
+            // 
+            this.boldItalicStyleStrip.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.boldItalicStyleStrip.Name = "boldItalicStyleStrip";
+            this.boldItalicStyleStrip.Size = new System.Drawing.Size(125, 22);
+            this.boldItalicStyleStrip.Tag = 3;
+            this.boldItalicStyleStrip.Text = "سميك مائل";
+            // 
+            // fontSizeList
+            // 
+            this.fontSizeList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.textSize8px,
             this.textSize10px,
             this.textSize12px,
@@ -147,9 +246,9 @@ namespace hijri_calendar
             this.textSize16px,
             this.textSize18px,
             this.textSize20px});
-            this.textSizeList.Name = "textSizeList";
-            this.textSizeList.Size = new System.Drawing.Size(194, 22);
-            this.textSizeList.Text = "حجم الخط";
+            this.fontSizeList.Name = "fontSizeList";
+            this.fontSizeList.Size = new System.Drawing.Size(180, 22);
+            this.fontSizeList.Text = "حجم الخط";
             // 
             // textSize8px
             // 
@@ -221,7 +320,8 @@ namespace hijri_calendar
             this.textColorCyan,
             this.textColorMagenta});
             this.textColorList.Name = "textColorList";
-            this.textColorList.Size = new System.Drawing.Size(194, 22);
+            this.textColorList.Size = new System.Drawing.Size(180, 22);
+            this.textColorList.Tag = "0";
             this.textColorList.Text = "لون الخط";
             // 
             // textColorBlack
@@ -328,34 +428,6 @@ namespace hijri_calendar
             this.formPositionsList.Size = new System.Drawing.Size(194, 22);
             this.formPositionsList.Text = "موضع البرنامج";
             // 
-            // leftTopStrip
-            // 
-            this.leftTopStrip.Name = "leftTopStrip";
-            this.leftTopStrip.Size = new System.Drawing.Size(134, 22);
-            this.leftTopStrip.Tag = hijri_calendar.FormPosition.LeftTop;
-            this.leftTopStrip.Text = "أعلى اليسار";
-            // 
-            // rightTopStrip
-            // 
-            this.rightTopStrip.Name = "rightTopStrip";
-            this.rightTopStrip.Size = new System.Drawing.Size(134, 22);
-            this.rightTopStrip.Tag = hijri_calendar.FormPosition.RightTop;
-            this.rightTopStrip.Text = "أعلى اليمين";
-            // 
-            // leftBottomStrip
-            // 
-            this.leftBottomStrip.Name = "leftBottomStrip";
-            this.leftBottomStrip.Size = new System.Drawing.Size(134, 22);
-            this.leftBottomStrip.Tag = hijri_calendar.FormPosition.LeftBottom;
-            this.leftBottomStrip.Text = "أسفل اليسار";
-            // 
-            // rightBottomStrip
-            // 
-            this.rightBottomStrip.Name = "rightBottomStrip";
-            this.rightBottomStrip.Size = new System.Drawing.Size(134, 22);
-            this.rightBottomStrip.Tag = hijri_calendar.FormPosition.RightBottom;
-            this.rightBottomStrip.Text = "أسفل اليمين";
-            // 
             // formOpacityList
             // 
             this.formOpacityList.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -441,6 +513,34 @@ namespace hijri_calendar
             this.closeStrip.Size = new System.Drawing.Size(194, 22);
             this.closeStrip.Text = "خروج";
             // 
+            // leftTopStrip
+            // 
+            this.leftTopStrip.Name = "leftTopStrip";
+            this.leftTopStrip.Size = new System.Drawing.Size(134, 22);
+            this.leftTopStrip.Tag = hijri_calendar.FormPosition.LeftTop;
+            this.leftTopStrip.Text = "أعلى اليسار";
+            // 
+            // rightTopStrip
+            // 
+            this.rightTopStrip.Name = "rightTopStrip";
+            this.rightTopStrip.Size = new System.Drawing.Size(134, 22);
+            this.rightTopStrip.Tag = hijri_calendar.FormPosition.RightTop;
+            this.rightTopStrip.Text = "أعلى اليمين";
+            // 
+            // leftBottomStrip
+            // 
+            this.leftBottomStrip.Name = "leftBottomStrip";
+            this.leftBottomStrip.Size = new System.Drawing.Size(134, 22);
+            this.leftBottomStrip.Tag = hijri_calendar.FormPosition.LeftBottom;
+            this.leftBottomStrip.Text = "أسفل اليسار";
+            // 
+            // rightBottomStrip
+            // 
+            this.rightBottomStrip.Name = "rightBottomStrip";
+            this.rightBottomStrip.Size = new System.Drawing.Size(134, 22);
+            this.rightBottomStrip.Tag = hijri_calendar.FormPosition.RightBottom;
+            this.rightBottomStrip.Text = "أسفل اليمين";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,7 +575,7 @@ namespace hijri_calendar
         private System.Windows.Forms.ToolStripMenuItem enableStrip;
         private System.Windows.Forms.ToolStripMenuItem disableStrip;
         private System.Windows.Forms.ToolStripMenuItem updateStrip;
-        private System.Windows.Forms.ToolStripMenuItem textSizeList;
+        private System.Windows.Forms.ToolStripMenuItem fontSizeList;
         private System.Windows.Forms.ToolStripMenuItem textColorList;
         private System.Windows.Forms.ToolStripMenuItem textSize8px;
         private System.Windows.Forms.ToolStripMenuItem textSize10px;
@@ -511,6 +611,16 @@ namespace hijri_calendar
         private System.Windows.Forms.ToolStripMenuItem opacity80Strip;
         private System.Windows.Forms.ToolStripMenuItem opacity90Strip;
         private System.Windows.Forms.ToolStripMenuItem opacity100Strip;
+        private System.Windows.Forms.ToolStripMenuItem textProperties;
+        private System.Windows.Forms.ToolStripMenuItem fontTypeList;
+        private System.Windows.Forms.ToolStripMenuItem fontStyleList;
+        private System.Windows.Forms.ToolStripMenuItem arialFontStrip;
+        private System.Windows.Forms.ToolStripMenuItem tahomaFontStrip;
+        private System.Windows.Forms.ToolStripMenuItem romanFontStrip;
+        private System.Windows.Forms.ToolStripMenuItem regularStyleStrip;
+        private System.Windows.Forms.ToolStripMenuItem italicStyleStrip;
+        private System.Windows.Forms.ToolStripMenuItem boldStyleStrip;
+        private System.Windows.Forms.ToolStripMenuItem boldItalicStyleStrip;
     }
 }
 

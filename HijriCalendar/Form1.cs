@@ -68,11 +68,21 @@ namespace hijri_calendar
             winStartup = def.WindowsStartup;
             MenuItem_Click(winStartup ? enableStrip : disableStrip, EventArgs.Empty);
 
-            SetDateLabelSize(def.TextSize);
-            SelectMenuItemBySetting(textSizeList, def.TextSize);
+
+            SetDateLabelType(def.FontType);
+            SelectMenuItemBySetting(fontTypeList, def.FontType);
+
+            SetDateLabelStyle(def.FontStyle);
+            SelectMenuItemBySetting(fontStyleList, def.FontStyle);
+
+            SetDateLabelSize(def.FontSize);
+            SelectMenuItemBySetting(fontSizeList, def.FontSize);
 
             SetDateLabelColor(def.TextColor);
             SelectMenuItemBySetting(textColorList, def.TextColor);
+
+
+            showMonthName = def.ShowMonthName;
 
             SetLangauge(def.Language);
             SelectMenuItemBySetting(languageList, def.Language);
@@ -82,8 +92,6 @@ namespace hijri_calendar
 
             SetOpacity(def.Opacity);
             SelectMenuItemBySetting(formOpacityList, def.Opacity);
-
-            showMonthName = def.ShowMonthName;
         }
 
         private void SelectMenuItemBySetting<T>(ToolStripMenuItem item, T value)
@@ -147,10 +155,26 @@ namespace hijri_calendar
             Properties.Settings.Default.Save();
         }
 
+        private void SetDateLabelType(string type)
+        {
+            dateLabel.Font = new Font(type, dateLabel.Font.Size, dateLabel.Font.Style);
+            Properties.Settings.Default.FontType = type;
+            Properties.Settings.Default.Save();
+            SetDate();
+        }
+
+        private void SetDateLabelStyle(int style)
+        {
+            dateLabel.Font = new Font(dateLabel.Font.FontFamily, dateLabel.Font.Size, (FontStyle)style);
+            Properties.Settings.Default.FontStyle = style;
+            Properties.Settings.Default.Save();
+            SetDate();
+        }
+
         private void SetDateLabelSize(float size)
         {
-            dateLabel.Font = new Font(dateLabel.Font.FontFamily, size);
-            Properties.Settings.Default.TextSize = size;
+            dateLabel.Font = new Font(dateLabel.Font.FontFamily, size, dateLabel.Font.Style);
+            Properties.Settings.Default.FontSize = size;
             Properties.Settings.Default.Save();
             SetDate();
         }
@@ -184,7 +208,14 @@ namespace hijri_calendar
             {
                 contextMenuStrip1.RightToLeft = RightToLeft.Yes;
                 windowsStartupStrip.Text = "التشغيل عند بدء الويندوز";
-                textSizeList.Text = "حجم الخط";
+                textProperties.Text = "خصائص الخط";
+                fontTypeList.Text = "نوع الخط";
+                fontStyleList.Text = "نمط الخط";
+                regularStyleStrip.Text = "عادي";
+                boldStyleStrip.Text = "سميك";
+                italicStyleStrip.Text = "مائل";
+                boldItalicStyleStrip.Text = "سميك مائل";
+                fontSizeList.Text = "حجم الخط";
                 textColorList.Text = "لون الخط";
                 textColorBlack.Text = "أسود";
                 textColorWhite.Text = "أبيض";
@@ -212,7 +243,14 @@ namespace hijri_calendar
             {
                 contextMenuStrip1.RightToLeft = RightToLeft.No;
                 windowsStartupStrip.Text = "Run at Windows startup";
-                textSizeList.Text = "Text Size";
+                textProperties.Text = "Text Properties";
+                fontTypeList.Text = "Font Type";
+                fontStyleList.Text = "Font Style";
+                regularStyleStrip.Text = "Regular";
+                boldStyleStrip.Text = "Bold";
+                italicStyleStrip.Text = "Italic";
+                boldItalicStyleStrip.Text = "Bold Italic";
+                fontSizeList.Text = "Font Size";
                 textColorList.Text = "Text Color";
                 textColorBlack.Text = "Black";
                 textColorWhite.Text = "White";
@@ -288,6 +326,29 @@ namespace hijri_calendar
             }
             showMonthNameStrip.Text = s;
         }
+
+        private void TextColorListUI()
+        {
+            if ((string)textColorList.Tag == "0")
+            {
+                textColorList.Tag = "1";
+                foreach (ToolStripMenuItem itm in textColorList.DropDownItems)
+                {
+                    itm.BackColor = Color.Silver;
+                    itm.ForeColor = (Color)itm.Tag;
+                }
+            }
+            else if ((string)textColorList.Tag == "1")
+            {
+                textColorList.Tag = "0";
+
+                foreach (ToolStripMenuItem itm in textColorList.DropDownItems)
+                {
+                    itm.BackColor = contextMenuStrip1.BackColor;
+                    itm.ForeColor = contextMenuStrip1.ForeColor;
+                }
+            }
+        }
         #endregion
 
         #region Event Handlers
@@ -297,14 +358,23 @@ namespace hijri_calendar
             enableStrip.Click += (s, ea) => CreateStartupShortcut();
             disableStrip.Click += (s, ea) => DeleteStartupShortcut();
 
-            SetMenuItemClickEvent(languageList);
-            SetMenuItemClickEvent<int>(languageList, SetLangauge);
 
-            SetMenuItemClickEvent(textSizeList);
-            SetMenuItemClickEvent<float>(textSizeList, SetDateLabelSize);
+            SetMenuItemClickEvent(fontTypeList);
+            SetMenuItemClickEvent<string>(fontTypeList, SetDateLabelType);
 
+            SetMenuItemClickEvent(fontStyleList);
+            SetMenuItemClickEvent<int>(fontStyleList, SetDateLabelStyle);
+
+            SetMenuItemClickEvent(fontSizeList);
+            SetMenuItemClickEvent<float>(fontSizeList, SetDateLabelSize);
+
+            textColorList.Click += (s, e) => TextColorListUI();
             SetMenuItemClickEvent(textColorList);
             SetMenuItemClickEvent<Color>(textColorList, SetDateLabelColor);
+
+
+            SetMenuItemClickEvent(languageList);
+            SetMenuItemClickEvent<int>(languageList, SetLangauge);
 
             SetMenuItemClickEvent(formPositionsList);
             SetMenuItemClickEvent<FormPosition>(formPositionsList, SetFormPosition);
