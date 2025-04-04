@@ -130,5 +130,17 @@ namespace hijri_calendar.Properties {
                 this["FontStyle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TextColorListUI {
+            get {
+                return ((int)(this["TextColorListUI"]));
+            }
+            set {
+                this["TextColorListUI"] = value;
+            }
+        }
     }
 }

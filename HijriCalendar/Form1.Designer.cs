@@ -321,7 +321,7 @@ namespace hijri_calendar
             this.textColorMagenta});
             this.textColorList.Name = "textColorList";
             this.textColorList.Size = new System.Drawing.Size(180, 22);
-            this.textColorList.Tag = "0";
+            this.textColorList.Tag = 0;
             this.textColorList.Text = "لون الخط";
             // 
             // textColorBlack

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -78,6 +77,7 @@ namespace hijri_calendar
             SetDateLabelSize(def.FontSize);
             SelectMenuItemBySetting(fontSizeList, def.FontSize);
 
+            if (def.TextColorListUI == 1) TextColorListUI();
             SetDateLabelColor(def.TextColor);
             SelectMenuItemBySetting(textColorList, def.TextColor);
 
@@ -329,25 +329,27 @@ namespace hijri_calendar
 
         private void TextColorListUI()
         {
-            if ((string)textColorList.Tag == "0")
+            if ((int)textColorList.Tag == 0)
             {
-                textColorList.Tag = "1";
+                textColorList.Tag = 1;
                 foreach (ToolStripMenuItem itm in textColorList.DropDownItems)
                 {
                     itm.BackColor = Color.Silver;
                     itm.ForeColor = (Color)itm.Tag;
                 }
+                Properties.Settings.Default.TextColorListUI = 1;
             }
-            else if ((string)textColorList.Tag == "1")
+            else if ((int)textColorList.Tag == 1)
             {
-                textColorList.Tag = "0";
-
+                textColorList.Tag = 0;
                 foreach (ToolStripMenuItem itm in textColorList.DropDownItems)
                 {
                     itm.BackColor = contextMenuStrip1.BackColor;
                     itm.ForeColor = contextMenuStrip1.ForeColor;
                 }
+                Properties.Settings.Default.TextColorListUI = 0;
             }
+            Properties.Settings.Default.Save();
         }
         #endregion
 
@@ -385,7 +387,7 @@ namespace hijri_calendar
             showMonthNameStrip.Click += (s, ea) => SetShowMonthNameBoolean();
             updateStrip.Click += (s, ea) => SetDate();
             dateLabel.MouseHover += (s, ea) => SetDate();
-            progLinkStrip.Click += (s, ea) => Process.Start("https://github.com/MohamedAshref371/HijriCalendar/releases/latest");
+            progLinkStrip.Click += (s, ea) => System.Diagnostics.Process.Start("https://github.com/MohamedAshref371/HijriCalendar/releases/latest");
             closeStrip.Click += (s, ea) => Close();
         }
 
